@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "module": "ESNext",
+        "skipLibCheck": true,
+
+        "moduleResolution": "node",
+        "jsx": "react-jsx",
+        "types": ["jest", "node"],
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "resolveJsonModule": true,
+
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true
+    },
+
+    "include": ["src/**/*.ts", "src/**/*.tsx"]
+}
