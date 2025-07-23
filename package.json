@@ -5,7 +5,7 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "tsc -p tsconfig.netlify.json && vite build",
+        "build": "tsc -p tsconfig.json && vite build",
         "lint": "eslint .",
         "preview": "vite preview",
         "sass": "sass ./src/styles/main.scss ./public/style.css",

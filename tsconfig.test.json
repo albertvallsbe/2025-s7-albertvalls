@@ -2,8 +2,6 @@
     "compilerOptions": {
         "target": "ES2022",
         "module": "ESNext",
-        "skipLibCheck": true,
-
         "moduleResolution": "node",
         "jsx": "react-jsx",
         "types": ["jest", "node"],
@@ -11,11 +9,15 @@
         "allowSyntheticDefaultImports": true,
         "resolveJsonModule": true,
 
+        /* Opcions de qualitat */
         "strict": true,
-        "forceConsistentCasingInFileNames": true,
         "noUnusedLocals": true,
-        "noUnusedParameters": true
-    },
+        "noUnusedParameters": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
 
+        /* Evitem generar sortida */
+        "noEmit": true
+    },
     "include": ["src/**/*.ts", "src/**/*.tsx"]
 }
