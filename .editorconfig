@@ -1,130 +1,87 @@
-# Configuración global
+# Global configuration
 root = true
 
 [*]
 charset = utf-8
 end_of_line = lf
-indent_size = 2
-indent_style = tab
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-# JavaScript
-[*.js]
 indent_style = tab
-indent_size = 4
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
-
-# PHP
-[*.php]
-indent_style = tab
-indent_size = 4
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
+indent_size = tab
+tab_width = 2
 
 # Markdown
 [*.md]
+trim_trailing_whitespace = false
 indent_style = space
 indent_size = 2
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = false
-insert_final_newline = true
 
 # HTML
 [*.html]
 indent_style = tab
-indent_size = 4
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
+indent_size = tab
+tab_width = 2
+
+# CSS
+[*.css]
+indent_style = tab
+indent_size = tab
+tab_width = 2
+
+# JavaScript
+[*.{js,jsx,test.js,test.jsx,spec.js,spec.jsx}]
+indent_style = tab
+indent_size = tab
+tab_width = 2
 
 # TypeScript
-[*.ts]
-[*.tsx]
-[*.test.ts]
-[*.test.tsx]
+[*.{ts,tsx,test.ts,test.tsx,spec.ts,spec.tsx}]
 indent_style = tab
-indent_size = 4
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
+indent_size = tab
+tab_width = 2
 
-quote_type = single
+# PHP
+[*.php]
+indent_style = tab
+indent_size = tab
+tab_width = 2
 
 # SQL
 [*.sql]
 indent_style = space
 indent_size = 4
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
 
 # JSON
-[*.json]
+[*.json,jsonc]
 indent_style = space
-indent_size = 4
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
+indent_size = 2
 
 # AsciiDoc
 [*.adoc]
 indent_style = space
 indent_size = 4
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
 
 # Shell
 [*.sh]
 indent_style = space
-indent_size = 4
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
-
-# CSS
-[*.css]
-indent_style = space
-indent_size = 4
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
+indent_size = 2
 
 # Archivos .gitignore
-[**/.gitignore]
-indent_style = space
-indent_size = 4
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
+[.gitignore]
+indent_style = tab
+indent_size = tab
+tab_width = 2
 
 # Archivos Vagrant
 [Vagrantfile]
 indent_style = space
 indent_size = 2
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
-root = true
 
 [*.{yml,yaml}]
+indent_style = space
 indent_size = 2
 
 [docker-compose.yml]
+indent_style = space
 indent_size = 4
