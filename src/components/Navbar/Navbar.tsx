@@ -4,12 +4,6 @@ export const Navbar = () => {
 	const linkClass = ({ isActive }: { isActive: boolean }) =>
 		`navbar__link${isActive ? " is-active" : ""}`;
 
-	// const openCheckoutAsideMenu = (event: React.MouseEvent) => {
-	// 	event.stopPropagation();
-	// 	context.openCheckoutAsideMenu();
-	// 	console.log("Navbar: ");
-	// };
-
 	return (
 		<nav className="navbar">
 			<ul className="navbar__left">
