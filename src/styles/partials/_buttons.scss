@@ -1,11 +1,11 @@
 @use "sass:color";
-@use "./colors";
-@use "./variables";
+@use "../base/colors";
+@use "../base/variables";
 
 .button__text {
 	padding: variables.$size-small variables.$size-large;
-	background: colors.$primary-color;
-	color: colors.$white;
+	background: colors.$primary-main;
+	color: colors.$neutral_lightest;
 	border-radius: variables.$border-radius;
 	font-size: 1rem;
 	cursor: pointer;
@@ -16,14 +16,14 @@
 }
 
 .button__text:hover {
-	background: color.scale(colors.$primary-color, $lightness: -10%);
+	background: color.scale(colors.$primary-main, $lightness: -10%);
 }
 
 .button__icon {
 	background: transparent;
-	border: 1px solid colors.$primary-color;
+	border: 1px solid colors.$primary-main;
 	border-radius: variables.$border-radius;
-	color: colors.$text-gray;
+	color: colors.$neutral_dark;
 	width: 1.5rem;
 	height: 1.5rem;
 	display: grid;
@@ -38,8 +38,8 @@
 }
 
 .button__icon:hover:not(:disabled) {
-	background: colors.$primary-color;
-	color: colors.$white;
+	background: colors.$primary-main;
+	color: colors.$neutral_lightest;
 }
 
 
@@ -48,16 +48,16 @@
 	place-items: center;
 	width: 2.75rem;
 	height: 2.5rem;
-	border: 1px solid colors.$primary-color;
+	border: 1px solid colors.$primary-main;
 	border-radius: variables.$border-radius;
 	background: transparent;
-	color: colors.$text-gray;
+	color: colors.$neutral_dark;
 	cursor: pointer;
 	transition: background 0.2s, color 0.2s;
 
 	&:hover {
-		background: colors.$primary-color;
-		color: colors.$white;
+		background: colors.$primary-main;
+		color: colors.$neutral_lightest;
 	}
 
 	&:disabled {

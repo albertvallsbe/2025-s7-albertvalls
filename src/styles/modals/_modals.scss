@@ -1,6 +1,6 @@
 @use "sass:color";
-@use "./colors";
-@use "./variables";
+@use "../base/colors";
+@use "../base/variables";
 
 .help-overlay {
 	position: fixed;
@@ -14,7 +14,7 @@
 }
 
 .help-modal {
-	background: colors.$white;
+	background: colors.$neutral_lightest;
 	padding: variables.$size-large;
 	border-radius: variables.$border-radius;
 	box-shadow: variables.$shadow-light;
@@ -22,7 +22,7 @@
 	width: 50%;
 	min-width: 20rem;
 	position: relative;
-	border: 1px solid colors.$primary-color;
+	border: 1px solid colors.$primary-main;
 	cursor: pointer;
 }
 
@@ -30,13 +30,13 @@
 	margin: 0 0 variables.$size-small;
 	font-size: 1.25rem;
 	font-weight: 600;
-	color: colors.$text-gray;
+	color: colors.$neutral_dark;
 }
 
 .help-modal__message {
 	margin: 0 0 variables.$size-medium;
 	font-size: 1rem;
-	color: colors.$text-gray;
+	color: colors.$neutral_dark;
 }
 
 .help-modal__close-button {
@@ -61,14 +61,14 @@
 	word-break: break-all;
 	resize: none;
 	overflow-y: auto;
-	border: 1px solid color.scale(colors.$primary-color, $alpha: -80%);
+	border: 1px solid color.scale(colors.$primary-main, $alpha: -80%);
 	border-radius: variables.$border-radius;
-	background-color: colors.$white;
-	color: colors.$text-gray;
+	background-color: colors.$neutral_lightest;
+	color: colors.$neutral_dark;
 
 
 	&:focus {
-		outline: 2px solid colors.$primary-color;
+		outline: 2px solid colors.$primary-main;
 		outline-offset: 2px;
 	}
 }
