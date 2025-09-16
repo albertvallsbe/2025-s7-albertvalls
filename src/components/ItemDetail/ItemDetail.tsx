@@ -1,15 +1,28 @@
-import { useContext } from "react";
 import { XMarkIcon } from "@heroicons/react/24/solid";
-import { MovieContext } from "../../context/movies/MovieContext";
+
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { closeDetail } from "../../features/ui/uiSlice";
+import {
+	selectIsDetailOpen,
+	selectSelectedMovieId,
+} from "../../features/ui/uiSelectors";
+import { selectMovieById } from "../../features/movies/moviesSelectors";
 
 const img = (path: string | null | undefined, size = "w780") =>
 	path ? `https://image.tmdb.org/t/p/${size}${path}` : "";
 
 export const ItemDetail = () => {
-	const context = useContext(MovieContext);
+	const dispatch = useAppDispatch();
 
-	if (!context.isItemDetailOpen || !context.itemToShow) {
-		// opcional: deixa l’aside muntat però ocult si prefereixes
+	const isDetailOpen = useAppSelector((state) => selectIsDetailOpen(state));
+	const selectedMovieId = useAppSelector((state) =>
+		selectSelectedMovieId(state)
+	);
+	const item = useAppSelector((state) =>
+		selectMovieById(state, selectedMovieId)
+	);
+
+	if (!isDetailOpen || !item) {
 		return null;
 	}
 
@@ -21,7 +34,7 @@ export const ItemDetail = () => {
 					className="product-detail__close"
 					type="button"
 					aria-label="Close detail"
-					onClick={context.closeItemDetail}
+					onClick={() => dispatch(closeDetail())}
 				>
 					<XMarkIcon></XMarkIcon>
 				</button>
@@ -30,22 +43,17 @@ export const ItemDetail = () => {
 			<figure className="product-detail__figure">
 				<img
 					className="product-detail__image"
-					src={img(
-						context.itemToShow.backdrop_path ?? context.itemToShow.poster_path,
-						"w780"
-					)}
-					alt={context.itemToShow.title ?? context.itemToShow.name ?? "Movie"}
+					src={img(item.backdrop_path ?? item.poster_path, "w780")}
+					alt={item.title ?? item.name ?? "Movie"}
 				/>
 			</figure>
 
 			<div className="product-detail__body">
 				<span className="product-detail__price">
-					{Math.round(context.itemToShow.vote_average ?? 0) * 10} /100
+					{Math.round(item.vote_average ?? 0) * 10} /100
 				</span>
-				<span className="product-detail__title">
-					{context.itemToShow.title ?? context.itemToShow.name}
-				</span>
-				<p className="product-detail__desc">{context.itemToShow.overview}</p>
+				<span className="product-detail__title">{item.title ?? item.name}</span>
+				<p className="product-detail__desc">{item.overview}</p>
 			</div>
 		</aside>
 	);

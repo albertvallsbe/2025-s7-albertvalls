@@ -1,7 +1,8 @@
-import { useContext } from "react";
 import type { TmdbMovie } from "../../types/movies";
-import { MovieContext } from "../../context/movies/MovieContext";
 // import { PlusIcon, MinusIcon } from "@heroicons/react/24/solid";
+
+import { useAppDispatch } from "../../app/hooks";
+import { openDetail } from "../../features/ui/uiSlice";
 
 type CardProps = { data: TmdbMovie };
 
@@ -9,65 +10,18 @@ const poster = (path: string | null | undefined, size = "w342") =>
 	path ? `https://image.tmdb.org/t/p/${size}${path}` : "";
 
 export const ItemCard = ({ data }: CardProps) => {
-	const context = useContext(MovieContext);
+	const dispatch = useAppDispatch();
 
-	const showItem = (itemDetail: TmdbMovie) => {
-		context.openItemDetail();
-		// context.closeCheckoutAsideMenu();
-		context.setItemToShow(itemDetail);
+	const openDetailForMovieItem = () => {
+		dispatch(openDetail(data.id));
 	};
-
-	// const addProductsToCart = (productData: Product, event: React.MouseEvent) => {
-	// 	event.stopPropagation();
-	// 	context.setCount(context.count + 1);
-	// 	context.setCartProducts([...context.cartProducts, productData]);
-	// 	context.openCheckoutAsideMenu();
-	// 	context.closeProductDetail();
-	// };
-
-	// const handleProductDelete = (id: number) => {
-	// 	const filteredProducts = context.cartProducts.filter(
-	// 		(product) => product.id !== id
-	// 	);
-	// 	context.setCartProducts(filteredProducts);
-	// 	context.setCount(context.count - 1);
-	// };
-
-	// const renderIcon = (id: number) => {
-	// 	const isInCart =
-	// 		context.cartProducts.filter((product) => product.id === id).length > 0;
-
-	// 	if (isInCart) {
-	// 		return (
-	// 			<button
-	// 				className="product-card__add"
-	// 				aria-label="Add to cart"
-	// 				type="button"
-	// 				onClick={() => handleProductDelete(data.id)}
-	// 			>
-	// 				<MinusIcon></MinusIcon>
-	// 			</button>
-	// 		);
-	// 	} else {
-	// 		return (
-	// 			<button
-	// 				className="product-card__add"
-	// 				aria-label="Add to cart"
-	// 				type="button"
-	// 				onClick={(event) => addProductsToCart(data, event)}
-	// 			>
-	// 				<PlusIcon></PlusIcon>
-	// 			</button>
-	// 		);
-	// 	}
-	// };
 
 	return (
 		<div
 			className="product-card"
 			role="article"
 			aria-label="Product card"
-			onClick={() => showItem(data)}
+			onClick={openDetailForMovieItem}
 		>
 			<figure className="product-card__figure">
 				<img
