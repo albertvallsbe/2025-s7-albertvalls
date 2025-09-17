@@ -12,7 +12,7 @@ const poster = (path: string | null | undefined, size = "w342") =>
 export const ItemCard = ({ data }: CardProps) => {
 	const dispatch = useAppDispatch();
 
-	const openDetailForMovieItem = () => {
+	const openDetailForItem = () => {
 		dispatch(openDetail(data.id));
 	};
 
@@ -21,7 +21,7 @@ export const ItemCard = ({ data }: CardProps) => {
 			className="product-card"
 			role="article"
 			aria-label="Product card"
-			onClick={openDetailForMovieItem}
+			onClick={openDetailForItem}
 		>
 			<figure className="product-card__figure">
 				<img

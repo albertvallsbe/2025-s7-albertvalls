@@ -1,60 +1,38 @@
-import { XMarkIcon } from "@heroicons/react/24/solid";
-
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { closeDetail } from "../../features/ui/uiSlice";
-import {
-	selectIsDetailOpen,
-	selectSelectedMovieId,
-} from "../../features/ui/uiSelectors";
-import { selectMovieById } from "../../features/movies/moviesSelectors";
+// import { XMarkIcon } from "@heroicons/react/24/solid";
+import type { TmdbMovie } from "../../types/movies";
 
 const img = (path: string | null | undefined, size = "w780") =>
 	path ? `https://image.tmdb.org/t/p/${size}${path}` : "";
 
-export const ItemDetail = () => {
-	const dispatch = useAppDispatch();
+type ItemDetailProps = {
+	movie: TmdbMovie;
+};
 
-	const isDetailOpen = useAppSelector((state) => selectIsDetailOpen(state));
-	const selectedMovieId = useAppSelector((state) =>
-		selectSelectedMovieId(state)
-	);
-	const item = useAppSelector((state) =>
-		selectMovieById(state, selectedMovieId)
-	);
-
-	if (!isDetailOpen || !item) {
-		return null;
-	}
+export const ItemDetail = ({ movie }: ItemDetailProps): JSX.Element => {
+	const title = movie.title ?? movie.name ?? "Untitled";
+	const score100 = Math.round((movie.vote_average ?? 0) * 10);
+	const date = movie.release_date ?? movie.first_air_date ?? "";
 
 	return (
-		<aside className="product-detail">
-			<div className="product-detail__header">
-				<h2>Detail</h2>
-				<button
-					className="product-detail__close"
-					type="button"
-					aria-label="Close detail"
-					onClick={() => dispatch(closeDetail())}
-				>
-					<XMarkIcon></XMarkIcon>
-				</button>
-			</div>
+		<article className="item-detail">
+			<header className="item-detail__header">
+				<h1 className="item-detail__title">{title}</h1>
+				{date && <p className="item-detail__date">{date}</p>}
+				<p className="item-detail__score">{score100} /100</p>
+			</header>
 
-			<figure className="product-detail__figure">
+			<figure className="item-detail__media">
 				<img
-					className="product-detail__image"
-					src={img(item.backdrop_path ?? item.poster_path, "w780")}
-					alt={item.title ?? item.name ?? "Movie"}
+					className="item-detail__image"
+					src={img(movie.backdrop_path ?? movie.poster_path, "w780")}
+					alt={title}
 				/>
 			</figure>
 
-			<div className="product-detail__body">
-				<span className="product-detail__price">
-					{Math.round(item.vote_average ?? 0) * 10} /100
-				</span>
-				<span className="product-detail__title">{item.title ?? item.name}</span>
-				<p className="product-detail__desc">{item.overview}</p>
-			</div>
-		</aside>
+			<section className="item-detail__body">
+				<h2>Overview</h2>
+				<p>{movie.overview}</p>
+			</section>
+		</article>
 	);
 };
