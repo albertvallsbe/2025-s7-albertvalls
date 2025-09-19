@@ -1,6 +1,10 @@
 @use "sass:color";
 @use "./colors";
 
+$nav-height: 75px;
+
+$viewport-max-width: 1200px;
+
 $border-radius: 0.5rem;
 
 $breakpoint-medium: 768px;
@@ -13,12 +17,10 @@ $size-medium: 1rem;
 $size-large: 1.5rem;
 $size-extra-large: 2rem;
 
-$product-card-width: 14rem;
-$product-card-height: 19rem;
+$item-card-width: 14rem;
+$item-card-height: 19rem;
 
-$product-card-meta-lines: 2;
-$product-card-meta-line-h: 1.25rem;
-$product-card-meta-pad-y: .75rem;
-$product-card-meta-h: $product-card-meta-pad-y * 2 + $product-card-meta-line-h * $product-card-meta-lines;
-
-$nav-height: 75px;
+$item-card-meta-lines: 2;
+$item-card-meta-line-h: 1.25rem;
+$item-card-meta-pad-y: .75rem;
+$item-card-meta-h: $item-card-meta-pad-y * 2 + $item-card-meta-line-h * $item-card-meta-lines;

@@ -3,53 +3,53 @@
 
 /* Pàgina de resum d’ordres (llistat) */
 .orders-page {
-	width: 20rem;
-	margin: 0 auto;
-	display: grid;
-	row-gap: variables.$size-medium;
+  width: 20rem;
+  margin: 0 auto;
+  display: grid;
+  row-gap: variables.$size-medium;
 }
 
 .orders-page__header {
-	display: grid;
-	place-items: center;
+  display: grid;
+  place-items: center;
 }
 
 .orders-page__title {
-	font-size: 1.25rem;
-	font-weight: 600;
-	color: colors.$primary_main;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: colors.$primary-main;
 }
 
 .orders-page__item {
-	text-decoration: none;
-	color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 /* Targeta resum d’una ordre */
 .orders-card {
-	display: grid;
-	grid-template-columns: 1fr auto auto;
-	column-gap: variables.$size-medium;
-	align-items: center;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  column-gap: variables.$size-medium;
+  align-items: center;
 
-	padding: variables.$size-small variables.$size-medium;
-	background: colors.$neutral_lightest;
-	border: 1px solid rgba(0, 0, 0, .08);
-	border-radius: variables.$border-radius;
-	box-shadow: variables.$shadow-light;
+  padding: variables.$size-small variables.$size-medium;
+  background: colors.$neutral-lightest;
+  border: 1px solid rgba(0, 0, 0, .08);
+  border-radius: variables.$border-radius;
+  box-shadow: variables.$shadow-light;
 }
 
 .orders-card__date {
-	color: colors.$neutral_darker;
+  color: colors.$neutral-darker;
 }
 
 .orders-card__count {
-	justify-self: end;
-	color: colors.$neutral_darker;
+  justify-self: end;
+  color: colors.$neutral-darker;
 }
 
 .orders-card__total {
-	justify-self: end;
-	font-weight: 700;
-	color: colors.$primary_main;
+  justify-self: end;
+  font-weight: 700;
+  color: colors.$primary-main;
 }

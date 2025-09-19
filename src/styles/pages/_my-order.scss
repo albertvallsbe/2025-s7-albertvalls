@@ -3,46 +3,46 @@
 
 
 .order-page {
-	width: 20rem;
-	margin: 0 auto;
-	display: grid;
-	row-gap: variables.$size-medium;
+  width: 20rem;
+  margin: 0 auto;
+  display: grid;
+  row-gap: variables.$size-medium;
 }
 
 
 .order-page__header {
-	display: grid;
-	grid-template-columns: auto 1fr auto;
-	align-items: center;
-	position: relative;
-	min-height: 2.25rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  position: relative;
+  min-height: 2.25rem;
 
 }
 
 .order-page__back {
-	justify-self: start;
-	display: grid;
-	place-items: center;
+  justify-self: start;
+  display: grid;
+  place-items: center;
 }
 
 .order-page__back-icon {
-	width: 1.5rem;
-	height: 1.5rem;
-	color: colors.$neutral_darker;
-	cursor: pointer;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: colors.$neutral-darker;
+  cursor: pointer;
 }
 
 .order-page__title {
-	justify-self: center;
-	font-size: 1.25rem;
-	font-weight: 600;
-	color: colors.$primary_main;
+  justify-self: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: colors.$primary-main;
 }
 
 
 
 .order-page__empty {
-	color: colors.$neutral_darker;
-	text-align: center;
-	padding: variables.$size-medium;
+  color: colors.$neutral-darker;
+  text-align: center;
+  padding: variables.$size-medium;
 }

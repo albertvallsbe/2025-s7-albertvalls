@@ -24,8 +24,8 @@ body {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	font-size: 1rem;
 	line-height: 1.5;
-	color: colors.$neutral_dark;
-	background-color: colors.$neutral_lighter;
+	color: colors.$neutral-dark;
+	background-color: colors.$neutral-lighter;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-rendering: optimizeLegibility;
@@ -83,10 +83,4 @@ ol[role="list"] {
 
 .web-options__control input[type="number"] {
 	-moz-appearance: textfield;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-	a:nth-of-type(2) .logo {
-		animation: logo-spin infinite 20s linear;
-	}
 }
