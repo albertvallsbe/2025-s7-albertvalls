@@ -23,7 +23,7 @@ export const HomePage = (): JSX.Element => {
 			{status === "loading" && <p>Loading…</p>}
 			{status === "failed" && <p>Error: {error}</p>}
 			{status === "succeeded" && (
-				<div className="products-grid">
+				<div className="items-card-grid">
 					{items?.map((item) => (
 						<ItemCard key={item.id} data={item} />
 					))}

@@ -129,7 +129,7 @@
 
   &:hover {
     background: color.scale(colors.$neutral-lighter, $lightness: -5%);
-    border: 1px solid color.change(colors.$primary-main, $alpha: .25);
+    border: variables.$border solid color.change(colors.$primary-main, $alpha: .25);
 
   }
 }

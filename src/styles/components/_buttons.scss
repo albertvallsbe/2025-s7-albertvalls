@@ -21,7 +21,7 @@
 
 .button__icon {
   background: transparent;
-  border: 1px solid colors.$primary-main;
+  border: variables.$border solid colors.$primary-main;
   border-radius: variables.$border-radius;
   color: colors.$neutral-dark;
   width: 1.5rem;
@@ -48,7 +48,7 @@
   place-items: center;
   width: 2.75rem;
   height: 2.5rem;
-  border: 1px solid colors.$primary-main;
+  border: variables.$border solid colors.$primary-main;
   border-radius: variables.$border-radius;
   background: transparent;
   color: colors.$neutral-dark;
