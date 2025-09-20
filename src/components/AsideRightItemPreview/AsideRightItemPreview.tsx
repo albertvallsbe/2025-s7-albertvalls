@@ -12,7 +12,7 @@ import { selectMovieById } from "../../features/movies/moviesSelectors";
 const img = (path: string | null | undefined, size = "w780") =>
 	path ? `https://image.tmdb.org/t/p/${size}${path}` : "";
 
-export const ItemPreview = () => {
+export const AsideRightItemPreview = () => {
 	const dispatch = useAppDispatch();
 
 	const isDetailOpen = useAppSelector((state) => selectIsDetailOpen(state));
@@ -32,7 +32,7 @@ export const ItemPreview = () => {
 			<div className="aside-right__header">
 				<h2>Detail</h2>
 				<button
-					className="aside-right__close"
+					className="aside-right__circle-icon"
 					type="button"
 					aria-label="Close detail"
 					onClick={() => dispatch(closeDetail())}
@@ -50,19 +50,22 @@ export const ItemPreview = () => {
 			</figure>
 
 			<div className="aside-right__body">
-				<span className="aside-right__price">
-					{Math.round(item.vote_average ?? 0) * 10} /100
+				<span className="aside-right__price-label">
+					{Math.round(item.vote_average ?? 0) * 10} / 100
 				</span>
 				<span className="aside-right__title">{item.title ?? item.name}</span>
 				<p className="aside-right__desc">{item.overview}</p>
 			</div>
-			<Link
-				to={`/movie/${item.id}`}
-				onClick={() => dispatch(closeDetail())}
-				className="button__text"
-			>
-				See more
-			</Link>
+
+			<div className="aside-right__footer">
+				<Link
+					to={`/movie/${item.id}`}
+					onClick={() => dispatch(closeDetail())}
+					className="button__text"
+				>
+					See more
+				</Link>
+			</div>
 		</aside>
 	);
 };

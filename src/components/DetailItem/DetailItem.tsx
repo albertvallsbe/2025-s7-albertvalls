@@ -18,7 +18,7 @@ export const ItemDetail = ({ movie }: ItemDetailProps): JSX.Element => {
 			<header className="detail-item__header">
 				<h1 className="detail-item__title">{title}</h1>
 				{date && <p className="detail-item__date">{date}</p>}
-				<p className="detail-item__score">{score100} /100</p>
+				<p className="detail-item__price-label">{score100} / 100</p>
 			</header>
 
 			<figure className="detail-item__media">

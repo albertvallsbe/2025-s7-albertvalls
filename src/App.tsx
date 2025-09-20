@@ -3,7 +3,7 @@ import { WelcomePage } from "./pages/WelcomePage/WelcomePage";
 import { HomePage } from "./pages/HomePage/HomePage";
 import { DetailItemPage } from "./pages/DetailItemPage/DetailItemPage";
 import { Navbar } from "./components/Navbar/Navbar";
-import { ItemPreview } from "./components/ItemPreview/ItemPreview";
+import { AsideRightItemPreview } from "./components/AsideRightItemPreview/AsideRightItemPreview";
 
 export const App = (): JSX.Element => (
 	<>
@@ -14,6 +14,6 @@ export const App = (): JSX.Element => (
 			<Route path="*" element={<Navigate to="/" replace />} />
 		</Routes>
 		<Navbar />
-		<ItemPreview />
+		<AsideRightItemPreview />
 	</>
 );

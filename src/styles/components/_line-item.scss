@@ -1,6 +1,8 @@
+@use "sass:color";
 @use "../base/colors";
 @use "../base/variables";
-@use "sass:color";
+@use "../base/typography";
+@use "../reusable/reusable-icons";
 
 .line-item {
 	display: grid;
@@ -23,6 +25,20 @@
 
 	/* separació vertical entre ítems */
 	margin-bottom: variables.$size-small;
+
+	&__price-label {
+		@extend %price-label;
+
+		justify-self: start;
+		align-self: end;
+		text-align: left;
+
+		margin-top: .125rem;
+	}
+
+	&__circle-icon {
+		@extend %circle-icon;
+	}
 }
 
 .line-item__media {
@@ -66,41 +82,4 @@
 	line-height: 1.2;
 	/* ajuda a calcular l’alçada */
 	max-height: calc(1.2em * 2);
-}
-
-.line-item__price {
-	margin-top: .125rem;
-	font-size: 1.125rem;
-	font-weight: 600;
-	color: colors.$primary-main;
-	justify-self: start;
-	align-self: end;
-	text-align: left;
-}
-
-.line-item__remove {
-	position: static;
-	// top: variables.$size-medium;
-	// right: variables.$size-medium;
-	display: grid;
-	place-items: center;
-	width: 1.5rem;
-	height: 1.5rem;
-	border-radius: 999px;
-	background: colors.$neutral-lighter;
-	border: variables.$border solid color.change(colors.$primary-main, $alpha: .25);
-	font-weight: 700;
-	line-height: 1;
-	user-select: none;
-	cursor: pointer;
-
-	&:hover {
-		background: colors.$neutral-light;
-	}
-
-	&>svg {
-		width: 1rem;
-		height: 1rem;
-		display: block;
-	}
 }

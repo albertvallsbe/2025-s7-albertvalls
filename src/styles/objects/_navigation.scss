@@ -3,133 +3,113 @@
 @use "sass:color";
 
 .navbar {
-  position: fixed;
-  inset: 0 0 auto 0;
+	position: fixed;
+	inset: 0 0 auto 0;
 
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
+	display: grid;
+	grid-template-columns: 1fr;
+	align-items: center;
 
-  padding: 0.75rem 2.5rem;
-  min-height: 50px;
+	padding: 0.75rem 2.5rem;
+	min-height: 50px;
 
-  background-color: colors.$neutral-lightest;
-  border-bottom: 0.5px solid colors.$primary-main;
-  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15);
-  backdrop-filter: saturate(180%) blur(8px);
+	background-color: colors.$neutral-lightest;
+	border-bottom: 0.5px solid colors.$primary-main;
+	box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15);
+	backdrop-filter: saturate(180%) blur(8px);
 
-  padding-block: 0;
+	padding-block: 0;
 
-  // width: 100%;
-  // box-sizing: border-box;
+	// width: 100%;
+	// box-sizing: border-box;
 
-  @media screen and (min-width: variables.$breakpoint-medium) {
-    grid-template-columns: auto 1fr;
-  }
+	@media screen and (min-width: variables.$breakpoint-medium) {
+		grid-template-columns: auto 1fr;
+	}
 }
 
 .navbar__left,
 .navbar__right {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: max-content;
-  align-items: center;
-  gap: 0.75rem;
-  list-style: none;
-  justify-content: start;
-  margin: 0;
-  padding: 0;
+	display: grid;
+	grid-auto-flow: column;
+	grid-auto-columns: max-content;
+	align-items: center;
+	gap: 0.75rem;
+	list-style: none;
+	justify-content: start;
+	margin: 0;
+	padding: 0;
 
-  @media (min-width: variables.$breakpoint-medium) {
-    gap: 1.25rem;
-  }
+	@media (min-width: variables.$breakpoint-medium) {
+		gap: 1.25rem;
+	}
 }
 
 .navbar__left {
-  justify-content: start;
+	justify-content: start;
 }
 
 .navbar__right {
-  justify-content: end;
+	justify-content: end;
 }
 
 .navbar__brand {
-  font-weight: 700;
-  font-size: 1.125rem;
-  margin-right: 0.5rem;
+	font-weight: 700;
+	font-size: 1.125rem;
+	margin-right: 0.5rem;
 }
 
 .navbar__brand-link {
-  color: colors.$primary-main;
-  text-decoration: none;
+	color: colors.$primary-main;
+	text-decoration: none;
 
-  &:hover,
-  &:focus {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+		text-underline-offset: 4px;
+	}
 }
 
 .navbar__link {
-  color: colors.$primary-main;
-  font-weight: 400;
-  text-decoration: none;
-  padding: 0.25rem 0;
-  transition: color 0.15s ease;
+	color: colors.$primary-main;
+	font-weight: 400;
+	text-decoration: none;
+	padding: 0.25rem 0;
+	transition: color 0.15s ease;
 
-  &:hover,
-  &:focus {
-    text-decoration: underline;
-    text-underline-offset: 4px; // equival a Tailwind underline-offset-4
-  }
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+		text-underline-offset: 4px; // equival a Tailwind underline-offset-4
+	}
 
-  &.is-active {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    color: color.scale(colors.$primary-main, $lightness: -10%);
-  }
+	&.is-active {
+		text-decoration: underline;
+		text-underline-offset: 4px;
+		color: color.scale(colors.$primary-main, $lightness: -10%);
+	}
 }
 
 .navbar__email {
-  color: color.scale(colors.$neutral-dark, $lightness: -10%);
-  font-size: 0.95rem;
+	color: color.scale(colors.$neutral-dark, $lightness: -10%);
+	font-size: 0.95rem;
 }
 
 .navbar__cart {
-  color: colors.$neutral-dark;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
+	color: colors.$neutral-dark;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.25rem;
 }
 
 .navbar__location {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: colors.$primary-main;
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: colors.$primary-main;
 }
 
 .navbar__temp {
-  font-size: 1.2rem;
-  color: color.scale(colors.$primary-main, $lightness: -20%);
-  font-weight: 500;
-}
-
-
-.checkout-card {
-
-  display: grid;
-  place-items: center;
-  // width: 3rem;
-  height: 2.5rem;
-  font-size: 1rem;
-  color: colors.$primary-main;
-  font-weight: 500;
-  line-height: 1;
-  user-select: none;
-
-  &:hover {
-    background: color.scale(colors.$neutral-lighter, $lightness: -5%);
-    border: variables.$border solid color.change(colors.$primary-main, $alpha: .25);
-
-  }
+	font-size: 1.2rem;
+	color: color.scale(colors.$primary-main, $lightness: -20%);
+	font-weight: 500;
 }

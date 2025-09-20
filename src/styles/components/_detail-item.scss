@@ -1,6 +1,7 @@
+@use "sass:color";
 @use "../base/colors";
 @use "../base/variables";
-@use "sass:color";
+@use "../base/typography";
 
 .detail-item {
 	/* target “card” centrada a la pàgina */
@@ -15,6 +16,15 @@
 	border: variables.$border solid colors.$primary-main;
 	border-radius: variables.$border-radius;
 	box-shadow: variables.$shadow-light;
+
+	&__price-label {
+		@extend %price-label;
+
+		justify-self: center;
+		text-align: center;
+
+		margin-top: .125rem;
+	}
 }
 
 /* --- Header --- */

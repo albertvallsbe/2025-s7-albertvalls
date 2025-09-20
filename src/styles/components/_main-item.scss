@@ -1,6 +1,8 @@
 @use "sass:color";
 @use "../base/colors";
 @use "../base/variables";
+@use "../base/typography";
+@use "../reusable/reusable-icons";
 
 .main-item {
 	display: grid;
@@ -24,6 +26,20 @@
 	&:hover {
 		transform: translateY(-2px);
 		box-shadow: 0 .6rem 1.6rem rgba(0, 0, 0, .12);
+	}
+
+	&__price-label {
+		@extend %price-label;
+
+		white-space: nowrap;
+	}
+
+	&__circle-icon {
+		@extend %circle-icon;
+
+		position: absolute;
+		top: variables.$size-small;
+		right: variables.$size-small;
 	}
 }
 
@@ -54,26 +70,6 @@
 	border-radius: variables.$border-radius;
 }
 
-.main-item__add {
-	position: absolute;
-	top: variables.$size-small;
-	right: variables.$size-small;
-	display: grid;
-	place-items: center;
-	width: 1.5rem;
-	height: 1.5rem;
-	border-radius: 999px;
-	background: colors.$neutral-lighter;
-	border: variables.$border solid color.change(colors.$primary-main, $alpha: .25);
-	font-weight: 700;
-	line-height: 1;
-	user-select: none;
-
-	&:hover {
-		background: color.scale(colors.$neutral-lighter, $lightness: -5%);
-	}
-}
-
 .main-item__meta {
 	height: variables.$main-item-meta-h;
 	box-sizing: border-box;
@@ -96,10 +92,4 @@
 	-webkit-line-clamp: variables.$main-item-meta-lines;
 	-webkit-box-orient: vertical;
 	overflow: hidden;
-}
-
-.main-item__price {
-	font-size: 1.125rem;
-	font-weight: 600;
-	white-space: nowrap;
 }

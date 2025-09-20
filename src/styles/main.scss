@@ -6,8 +6,11 @@
 @use "./base/typography";
 @use "./base/variables";
 
+// Mixins
+@use "./mixins/mixins";
+
 // Reusables
-@use "reusable/reusable-buttons";
+// @use "reusable/reusable-buttons";
 
 // Modals
 @use "./modals/modals";

@@ -1,0 +1,44 @@
+@use "../base/colors";
+@use "../base/variables";
+@use "sass:color";
+
+@mixin boxLateralShadow($side: bottom,
+	$borderColor: transparent,
+	$axis: 3px,
+	$shadowColor: $neutral_main) {
+
+	@if $side =='top' {
+		border-top: 1px solid $borderColor;
+		box-shadow: 0px ($axis * -1) ($axis * 2) 0px $shadowColor;
+	}
+
+	@else if $side =='bottom' {
+		border-bottom: 1px solid $borderColor;
+		box-shadow: 0px $axis (
+			$axis * 2) 0px $shadowColor;
+	}
+
+	@else if $side =='left' {
+		border-left: 1px solid $borderColor;
+		box-shadow: -$axis 0px ($axis * 2) 0px $shadowColor;
+	}
+
+	@else if $side =='right' {
+		border-right: 1px solid $borderColor;
+		box-shadow: $axis 0px ($axis * 2) 0px $shadowColor;
+	}
+}
+
+@mixin boxShadow($borderColor: transparent,
+	$radius: 0,
+	$axis: 3px,
+	$shadowColor: $neutral_main,
+	$shadowColorSecondary: $neutral_light) {
+
+	border-radius: $radius;
+	border: 1px solid $borderColor;
+	box-shadow:
+		$axis $axis (
+		$axis * 2) $shadowColor,
+		(-$axis) (-$axis) ($axis * 2) $shadowColorSecondary;
+}

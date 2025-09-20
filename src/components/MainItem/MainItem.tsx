@@ -32,7 +32,7 @@ export const MainItem = ({ data }: CardProps) => {
 			</figure>
 			<p className="main-item__meta">
 				<span className="main-item__title"> {data.title ?? data.name}</span>
-				<span className="main-item__price">
+				<span className="main-item__price-label">
 					{" "}
 					{Math.round((data.vote_average ?? 0) * 10)} / 100
 				</span>

@@ -1,5 +1,7 @@
 @use "../base/colors";
 @use "../base/variables";
+@use "../base/typography";
+@use "../reusable/reusable-icons";
 
 /* Targeta resum d’una ordre */
 .summary-item {
@@ -13,19 +15,45 @@
 	border: variables.$border solid rgba(0, 0, 0, .08);
 	border-radius: variables.$border-radius;
 	box-shadow: variables.$shadow-light;
+
+	&:hover {
+		border-color: rgba(0, 0, 0, .18);
+	}
+
+	&__price-label {
+		@extend %price-label;
+
+		justify-self: end;
+	}
+
+	&__circle-icon {
+		@extend %circle-icon;
+
+		justify-self: end;
+	}
+}
+
+.summary-item__left {
+	display: grid;
+	row-gap: .25rem;
 }
 
 .summary-item__date {
 	color: colors.$neutral-darker;
+	font-size: .875rem;
+	line-height: 1.1;
 }
 
 .summary-item__count {
-	justify-self: end;
+	justify-self: start;
 	color: colors.$neutral-darker;
+	// font-size: .875rem;
+	line-height: 1.1;
 }
 
-.summary-item__total {
-	justify-self: end;
-	font-weight: 700;
-	color: colors.$primary-main;
+.summary-item__right {
+	display: inline-grid;
+	grid-auto-flow: column;
+	align-items: center;
+	gap: .75rem;
 }
