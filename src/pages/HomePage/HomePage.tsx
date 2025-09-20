@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Layout } from "../../components/Layout/Layout";
-import { ItemCard } from "../../components/ItemCard/ItemCard";
+import { MainItem } from "../../components/MainItem/MainItem";
 
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { fetchTrendingMovies } from "../../features/movies/moviesSlice";
@@ -23,9 +23,9 @@ export const HomePage = (): JSX.Element => {
 			{status === "loading" && <p>Loading…</p>}
 			{status === "failed" && <p>Error: {error}</p>}
 			{status === "succeeded" && (
-				<div className="items-card-grid">
+				<div className="main-items-grid">
 					{items?.map((item) => (
-						<ItemCard key={item.id} data={item} />
+						<MainItem key={item.id} data={item} />
 					))}
 				</div>
 			)}

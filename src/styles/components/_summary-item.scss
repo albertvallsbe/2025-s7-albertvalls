@@ -1,0 +1,31 @@
+@use "../base/colors";
+@use "../base/variables";
+
+/* Targeta resum d’una ordre */
+.summary-item {
+	display: grid;
+	grid-template-columns: 1fr auto auto;
+	column-gap: variables.$size-medium;
+	align-items: center;
+
+	padding: variables.$size-small variables.$size-medium;
+	background: colors.$neutral-lightest;
+	border: variables.$border solid rgba(0, 0, 0, .08);
+	border-radius: variables.$border-radius;
+	box-shadow: variables.$shadow-light;
+}
+
+.summary-item__date {
+	color: colors.$neutral-darker;
+}
+
+.summary-item__count {
+	justify-self: end;
+	color: colors.$neutral-darker;
+}
+
+.summary-item__total {
+	justify-self: end;
+	font-weight: 700;
+	color: colors.$primary-main;
+}

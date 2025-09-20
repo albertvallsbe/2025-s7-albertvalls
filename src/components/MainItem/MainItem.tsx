@@ -9,7 +9,7 @@ type CardProps = { data: TmdbMovie };
 const poster = (path: string | null | undefined, size = "w342") =>
 	path ? `https://image.tmdb.org/t/p/${size}${path}` : "";
 
-export const ItemCard = ({ data }: CardProps) => {
+export const MainItem = ({ data }: CardProps) => {
 	const dispatch = useAppDispatch();
 
 	const openDetailForItem = () => {
@@ -18,21 +18,21 @@ export const ItemCard = ({ data }: CardProps) => {
 
 	return (
 		<div
-			className="item-card"
+			className="main-item"
 			role="card"
 			aria-label="Item card"
 			onClick={openDetailForItem}
 		>
-			<figure className="item-card__figure">
+			<figure className="main-item__figure">
 				<img
-					className="item-card__image"
+					className="main-item__image"
 					src={poster(data.poster_path)}
 					alt={data.title ?? data.name ?? "Movie"}
 				/>
 			</figure>
-			<p className="item-card__meta">
-				<span className="item-card__title"> {data.title ?? data.name}</span>
-				<span className="item-card__price">
+			<p className="main-item__meta">
+				<span className="main-item__title"> {data.title ?? data.name}</span>
+				<span className="main-item__price">
 					{" "}
 					{Math.round((data.vote_average ?? 0) * 10)} / 100
 				</span>

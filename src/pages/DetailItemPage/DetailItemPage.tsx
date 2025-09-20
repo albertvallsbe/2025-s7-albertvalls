@@ -9,9 +9,9 @@ import {
 } from "../../features/movies/moviesSelectors";
 import { fetchMovieById } from "../../features/movies/moviesSlice";
 import { Layout } from "../../components/Layout/Layout";
-import { ItemDetail } from "../../components/ItemDetail/ItemDetail";
+import { ItemDetail } from "../../components/DetailItem/DetailItem";
 
-export const ItemPage = (): JSX.Element => {
+export const DetailItemPage = (): JSX.Element => {
 	const { id } = useParams<{ id: string }>();
 	const movieId = id ? Number(id) : null;
 

@@ -6,6 +6,9 @@
 @use "./base/typography";
 @use "./base/variables";
 
+// Reusables
+@use "reusable/reusable-buttons";
+
 // Modals
 @use "./modals/modals";
 
@@ -16,11 +19,12 @@
 
 //  Components
 @use "./components/buttons";
-@use "./components/card";
-@use "./components/order-card";
+@use "./components/main-item";
+@use "./components/line-item";
+@use "./components/summary-item";
+@use "./components/detail-item";
 
 // Pages
 @use "./pages/home";
-@use "./pages/item-detail";
 @use "./pages/_my-orders.scss";
 @use "./pages/_my-order.scss";
