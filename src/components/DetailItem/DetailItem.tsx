@@ -14,22 +14,22 @@ export const ItemDetail = ({ movie }: ItemDetailProps): JSX.Element => {
 	const date = movie.release_date ?? movie.first_air_date ?? "";
 
 	return (
-		<article className="item-detail">
-			<header className="item-detail__header">
-				<h1 className="item-detail__title">{title}</h1>
-				{date && <p className="item-detail__date">{date}</p>}
-				<p className="item-detail__score">{score100} /100</p>
+		<article className="detail-item">
+			<header className="detail-item__header">
+				<h1 className="detail-item__title">{title}</h1>
+				{date && <p className="detail-item__date">{date}</p>}
+				<p className="detail-item__price-label">{score100} / 100</p>
 			</header>
 
-			<figure className="item-detail__media">
+			<figure className="detail-item__media">
 				<img
-					className="item-detail__image"
+					className="detail-item__image"
 					src={img(movie.backdrop_path ?? movie.poster_path, "w780")}
 					alt={title}
 				/>
 			</figure>
 
-			<section className="item-detail__body">
+			<section className="detail-item__body">
 				<h2>Overview</h2>
 				<p>{movie.overview}</p>
 			</section>

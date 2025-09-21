@@ -1,8 +1,9 @@
+@use "sass:color";
 @use "../base/colors";
 @use "../base/variables";
-@use "sass:color";
+@use "../base/typography";
 
-.item-detail {
+.detail-item {
 	/* target “card” centrada a la pàgina */
 	width: min(900px, 100% - 2rem);
 	margin: variables.$size-extra-large auto;
@@ -11,51 +12,60 @@
 	grid-template-rows: auto auto 1fr;
 	gap: variables.$size-large;
 
-	background: colors.$neutral_lighter;
-	border: 1px solid colors.$primary_main;
+	background: colors.$neutral-lighter;
+	border: variables.$border solid colors.$primary-main;
 	border-radius: variables.$border-radius;
 	box-shadow: variables.$shadow-light;
+
+	&__price-label {
+		@extend %price-label;
+
+		justify-self: center;
+		text-align: center;
+
+		margin-top: .125rem;
+	}
 }
 
 /* --- Header --- */
-.item-detail__header {
+.detail-item__header {
 	display: grid;
 	justify-items: center;
 	row-gap: variables.$size-small;
 	text-align: center;
-	color: colors.$primary_main;
+	color: colors.$primary-main;
 }
 
-.item-detail__title {
+.detail-item__title {
 	margin: 0;
 	font-size: 1.75rem;
 	font-weight: 700;
 }
 
-.item-detail__date {
+.detail-item__date {
 	font-size: .95rem;
-	color: color.scale(colors.$neutral_dark, $lightness: 15%);
+	color: color.scale(colors.$neutral-dark, $lightness: 15%);
 }
 
-.item-detail__score {
+.detail-item__score {
 	font-size: 1rem;
 	font-weight: 600;
-	color: colors.$primary_main;
+	color: colors.$primary-main;
 }
 
 /* --- Media --- */
-.item-detail__media {
+.detail-item__media {
 	display: grid;
 	justify-items: center;
 	align-items: center;
-	background: colors.$neutral_light;
+	background: colors.$neutral-light;
 	border-radius: variables.$border-radius;
 	overflow: hidden;
 	min-height: 0;
 	/* per evitar overflow en contenidors flex/grid */
 }
 
-.item-detail__image {
+.detail-item__image {
 	width: 100%;
 	height: auto;
 	display: block;
@@ -65,39 +75,32 @@
 }
 
 /* --- Body --- */
-.item-detail__body {
+.detail-item__body {
 	display: grid;
 	gap: variables.$size-small;
 	text-align: center;
-	color: colors.$neutral_darker;
+	color: colors.$neutral-darker;
 	padding: 0 variables.$size-small variables.$size-small;
 }
 
-.item-detail__body h2 {
+.detail-item__body h2 {
 	margin: 0;
 	font-size: 1.25rem;
-	color: colors.$primary_main;
+	color: colors.$primary-main;
 }
 
 @media (min-width: variables.$breakpoint-medium) {
-	.item-detail {
+	.detail-item {
 		width: min(1000px, 100% - 4rem);
 		padding: variables.$size-extra-large;
 		gap: variables.$size-extra-large;
 	}
 
-	.item-detail__title {
+	.detail-item__title {
 		font-size: 2rem;
 	}
 
-	.item-detail__image {
+	.detail-item__image {
 		aspect-ratio: 21/9;
 	}
-}
-
-/* (opc.) Zona d’accions si afegeixes un botó reutilitzant .button__text */
-.item-detail__actions {
-	display: grid;
-	justify-content: center;
-	margin-top: variables.$size-small;
 }

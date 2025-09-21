@@ -12,7 +12,7 @@ import { selectMovieById } from "../../features/movies/moviesSelectors";
 const img = (path: string | null | undefined, size = "w780") =>
 	path ? `https://image.tmdb.org/t/p/${size}${path}` : "";
 
-export const ItemPreview = () => {
+export const AsideRightItemPreview = () => {
 	const dispatch = useAppDispatch();
 
 	const isDetailOpen = useAppSelector((state) => selectIsDetailOpen(state));
@@ -28,11 +28,11 @@ export const ItemPreview = () => {
 	}
 
 	return (
-		<aside className="product-detail">
-			<div className="product-detail__header">
+		<aside className="aside-right">
+			<div className="aside-right__header">
 				<h2>Detail</h2>
 				<button
-					className="product-detail__close"
+					className="aside-right__circle-icon"
 					type="button"
 					aria-label="Close detail"
 					onClick={() => dispatch(closeDetail())}
@@ -41,28 +41,31 @@ export const ItemPreview = () => {
 				</button>
 			</div>
 
-			<figure className="product-detail__figure">
+			<figure className="aside-right__figure">
 				<img
-					className="product-detail__image"
+					className="aside-right__image"
 					src={img(item.backdrop_path ?? item.poster_path, "w780")}
 					alt={item.title ?? item.name ?? "Movie"}
 				/>
 			</figure>
 
-			<div className="product-detail__body">
-				<span className="product-detail__price">
-					{Math.round(item.vote_average ?? 0) * 10} /100
+			<div className="aside-right__body">
+				<span className="aside-right__price-label">
+					{Math.round(item.vote_average ?? 0) * 10} / 100
 				</span>
-				<span className="product-detail__title">{item.title ?? item.name}</span>
-				<p className="product-detail__desc">{item.overview}</p>
+				<span className="aside-right__title">{item.title ?? item.name}</span>
+				<p className="aside-right__desc">{item.overview}</p>
 			</div>
-			<Link
-				to={`/movie/${item.id}`}
-				onClick={() => dispatch(closeDetail())}
-				className="button__text"
-			>
-				See more
-			</Link>
+
+			<div className="aside-right__footer">
+				<Link
+					to={`/movie/${item.id}`}
+					onClick={() => dispatch(closeDetail())}
+					className="button__text"
+				>
+					See more
+				</Link>
+			</div>
 		</aside>
 	);
 };

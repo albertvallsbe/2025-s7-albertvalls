@@ -14,7 +14,7 @@
 }
 
 .help-modal {
-	background: colors.$neutral_lightest;
+	background: colors.$neutral-lightest;
 	padding: variables.$size-large;
 	border-radius: variables.$border-radius;
 	box-shadow: variables.$shadow-light;
@@ -22,7 +22,7 @@
 	width: 50%;
 	min-width: 20rem;
 	position: relative;
-	border: 1px solid colors.$primary-main;
+	border: variables.$border solid colors.$primary-main;
 	cursor: pointer;
 }
 
@@ -30,13 +30,13 @@
 	margin: 0 0 variables.$size-small;
 	font-size: 1.25rem;
 	font-weight: 600;
-	color: colors.$neutral_dark;
+	color: colors.$neutral-dark;
 }
 
 .help-modal__message {
 	margin: 0 0 variables.$size-medium;
 	font-size: 1rem;
-	color: colors.$neutral_dark;
+	color: colors.$neutral-dark;
 }
 
 .help-modal__close-button {
@@ -61,10 +61,10 @@
 	word-break: break-all;
 	resize: none;
 	overflow-y: auto;
-	border: 1px solid color.scale(colors.$primary-main, $alpha: -80%);
+	border: variables.$border solid color.scale(colors.$primary-main, $alpha: -80%);
 	border-radius: variables.$border-radius;
-	background-color: colors.$neutral_lightest;
-	color: colors.$neutral_dark;
+	background-color: colors.$neutral-lightest;
+	color: colors.$neutral-dark;
 
 
 	&:focus {

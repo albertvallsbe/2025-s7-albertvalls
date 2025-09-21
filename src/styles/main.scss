@@ -6,19 +6,26 @@
 @use "./base/typography";
 @use "./base/variables";
 
+// Mixins
+@use "./mixins/mixins";
+
+// Reusables
+// @use "reusable/reusable-buttons";
+
 // Modals
 @use "./modals/modals";
 
-// Partials
-@use "./partials/layout";
-@use "./partials/card";
-@use "./partials/buttons";
-@use "./partials/order-card";
+// Objects
+@use "./objects/navigation";
+@use "./objects/layout";
+@use "./objects/aside-right";
 
 //  Components
-@use "./components/navigation";
-@use "./components/asideRight";
-@use "./components/itemDetail";
+@use "./components/buttons";
+@use "./components/main-item";
+@use "./components/line-item";
+@use "./components/summary-item";
+@use "./components/detail-item";
 
 // Pages
 @use "./pages/home";

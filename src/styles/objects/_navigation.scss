@@ -13,7 +13,7 @@
 	padding: 0.75rem 2.5rem;
 	min-height: 50px;
 
-	background-color: colors.$neutral_lightest;
+	background-color: colors.$neutral-lightest;
 	border-bottom: 0.5px solid colors.$primary-main;
 	box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15);
 	backdrop-filter: saturate(180%) blur(8px);
@@ -91,12 +91,12 @@
 }
 
 .navbar__email {
-	color: color.scale(colors.$neutral_dark, $lightness: -10%);
+	color: color.scale(colors.$neutral-dark, $lightness: -10%);
 	font-size: 0.95rem;
 }
 
 .navbar__cart {
-	color: colors.$neutral_dark;
+	color: colors.$neutral-dark;
 	display: inline-flex;
 	align-items: center;
 	gap: 0.25rem;
@@ -112,24 +112,4 @@
 	font-size: 1.2rem;
 	color: color.scale(colors.$primary-main, $lightness: -20%);
 	font-weight: 500;
-}
-
-
-.checkout-card {
-
-	display: grid;
-	place-items: center;
-	// width: 3rem;
-	height: 2.5rem;
-	font-size: 1rem;
-	color: colors.$primary-main;
-	font-weight: 500;
-	line-height: 1;
-	user-select: none;
-
-	&:hover {
-		background: color.scale(colors.$neutral_lighter, $lightness: -5%);
-		border: 1px solid color.change(colors.$primary_main, $alpha: .25);
-
-	}
 }

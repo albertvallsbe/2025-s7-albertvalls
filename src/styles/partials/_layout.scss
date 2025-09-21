@@ -1,9 +1,0 @@
-@use "../base/variables";
-
-.layout {
-	padding-top: variables.$nav-height;
-	min-height: calc(100svh - variables.$nav-height);
-	width: min(1200px, 100% - 2rem);
-	margin-inline: auto;
-	padding-inline: 1rem;
-}
