@@ -1,9 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import uiReducer from "../features/ui/uiSlice";
 import moviesReducer from "../features/movies/moviesSlice";
+import authReducer from "../features/auth/authSlice";
 
 export const store = configureStore({
-	reducer: { ui: uiReducer, movies: moviesReducer },
+	reducer: { ui: uiReducer, movies: moviesReducer, auth: authReducer },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
