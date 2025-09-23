@@ -1,8 +1,28 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import {
+	selectAuthState,
+	selectIsAuthenticated,
+	performLogout,
+} from "../../features/auth/authSlice";
 
 export const Navbar = () => {
 	const linkClass = ({ isActive }: { isActive: boolean }) =>
 		`navbar__link${isActive ? " is-active" : ""}`;
+
+	const dispatch = useAppDispatch();
+	const navigate = useNavigate();
+
+	const isAuthenticated = useAppSelector(selectIsAuthenticated);
+	const { authenticatedUser } = useAppSelector(selectAuthState);
+
+	// Etiqueta d’usuari a mostrar (ara mateix fem servir l’email; més endavant pot ser username)
+	const userLabel: string = authenticatedUser?.email ?? "";
+
+	const handleLogout = (): void => {
+		dispatch(performLogout());
+		navigate("/", { replace: true });
+	};
 
 	return (
 		<nav className="navbar">
@@ -19,11 +39,21 @@ export const Navbar = () => {
 				</li>
 			</ul>
 			<ul className="navbar__right">
-				<li className="navbar__email">titu@platzi.com</li>
+				<li className="navbar__email">{userLabel}</li>
 				<li>
-					<NavLink to="/sign-in" className={linkClass}>
-						Sign In
-					</NavLink>
+					{isAuthenticated ? (
+						<button
+							type="button"
+							className="navbar__link"
+							onClick={handleLogout}
+						>
+							Logout
+						</button>
+					) : (
+						<NavLink to="/login" className={linkClass}>
+							Login
+						</NavLink>
+					)}
 				</li>
 			</ul>
 		</nav>

@@ -114,6 +114,12 @@ const authSlice = createSlice({
 });
 
 export const { hydrateFromLocalStorage, signOut } = authSlice.actions;
+export const performLogout = createAsyncThunk<void, void>(
+	"auth/performLogout",
+	async (_: void, { dispatch }) => {
+		dispatch(signOut());
+	}
+);
 export default authSlice.reducer;
 
 // Selectors útils
