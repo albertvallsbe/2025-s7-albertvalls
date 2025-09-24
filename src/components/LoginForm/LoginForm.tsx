@@ -5,7 +5,9 @@ import {
 	authenticateUser,
 	selectAuthState,
 	selectIsAuthenticated,
+	clearAuthError,
 } from "../../features/auth/authSlice";
+import { InputForm } from "../../elements/forms/InputForm";
 
 type LoginFormState = {
 	email: string;
@@ -26,7 +28,7 @@ export const LoginForm = (): JSX.Element => {
 	const navigate = useNavigate();
 	const location = useLocation();
 
-	const { authenticationStatus, errorMessage } =
+	const { authenticationStatus, errorMessage, errorStatusCode } =
 		useAppSelector(selectAuthState);
 	const isAuthenticated = useAppSelector(selectIsAuthenticated);
 
@@ -57,42 +59,57 @@ export const LoginForm = (): JSX.Element => {
 	}, [isAuthenticated, navigate, fromPath]);
 
 	return (
-		<section
-			style={{ maxWidth: 360, margin: "0 auto", display: "grid", gap: 12 }}
-		>
-			<h1>Sign in</h1>
+		<section className="auth auth--center">
+			<div className="auth__card">
+				<h1 className="auth__title">Sign in</h1>
 
-			<form onSubmit={handleSubmit} style={{ display: "grid", gap: 12 }}>
-				<label htmlFor="email">Email</label>
-				<input
-					id="email"
-					type="email"
-					autoComplete="username"
-					placeholder="your@email.com"
-					value={formData.email}
-					onChange={handleFormChange}
-					required
-				/>
-
-				<label htmlFor="password">Password</label>
-				<input
-					id="password"
-					type="password"
-					autoComplete="current-password"
-					placeholder="••••••••"
-					value={formData.password}
-					onChange={handleFormChange}
-					required
-				/>
-
-				<button type="submit" disabled={authenticationStatus === "loading"}>
-					{authenticationStatus === "loading" ? "Entrant…" : "Entrar"}
-				</button>
-			</form>
-
-			{authenticationStatus === "failed" && (
-				<p style={{ color: "crimson" }}>{errorMessage}</p>
-			)}
+				<form onSubmit={handleSubmit} className="form">
+					{authenticationStatus === "failed" && (
+						<div className="form__alert form__alert--error" role="alert">
+							<p className="form__alert__text" aria-live="polite">
+								{errorStatusCode ? `${errorStatusCode} · ` : null}
+								{errorMessage ?? "No s'ha pogut iniciar sessió."}
+							</p>
+							{/* Si vols un botonet per “tancar” visualment (no canvia l'estat) */}
+							<button
+								type="button"
+								className="form__alert__close"
+								aria-label="Close"
+								onClick={() => dispatch(clearAuthError())}
+							>
+								✕
+							</button>
+						</div>
+					)}
+					<InputForm
+						id="email"
+						type="email"
+						label="Email address"
+						autoComplete="username"
+						placeholder="your@email.com"
+						value={formData.email}
+						onChange={handleFormChange}
+						required
+					/>
+					<InputForm
+						id="password"
+						type="password"
+						label="Password"
+						autoComplete="current-password"
+						placeholder="••••••••"
+						value={formData.password}
+						onChange={handleFormChange}
+						required
+					/>
+					<button
+						type="submit"
+						disabled={authenticationStatus === "loading"}
+						className="button button--primary"
+					>
+						{authenticationStatus === "loading" ? "Entrant…" : "Entrar"}
+					</button>
+				</form>
+			</div>
 		</section>
 	);
 };

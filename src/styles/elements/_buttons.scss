@@ -1,7 +1,7 @@
 @use "sass:color";
 @use "../base/colors";
 @use "../base/variables";
-@use "../reusable/reusable-icons";
+@use "../elements/icons";
 
 // Obsolets
 .button__icon {
@@ -66,6 +66,63 @@
 	&:hover {
 		background: color.scale(colors.$neutral-lighter, $lightness: -5%);
 		border: variables.$border solid color.change(colors.$primary-main, $alpha: .25);
+	}
+}
+
+/* -------- Botons reutilitzables (fora del bloc si els feu servir arreu) -------- */
+
+.button {
+	display: grid;
+	place-items: center;
+
+	min-height: 2.5rem;
+	padding: 0.5rem 1.25rem;
+
+	font-size: 1rem;
+	line-height: 1;
+	font-weight: 500;
+
+	border: 1px solid transparent;
+	border-radius: variables.$border-radius;
+
+	background: colors.$neutral-light;
+	color: colors.$neutral-darker;
+
+	cursor: pointer;
+	transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+
+	&:disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+	}
+
+	&--primary {
+		background: colors.$primary-main;
+		color: colors.$neutral-lightest;
+		border-color: colors.$primary-main;
+
+		&:hover,
+		&:focus {
+			background: colors.$primary-dark;
+			border-color: colors.$primary-dark;
+		}
+	}
+
+	&--secondary {
+		background: colors.$neutral-main;
+		color: colors.$neutral-lightest;
+		border-color: colors.$neutral-main;
+
+		&:hover,
+		&:focus {
+			background: colors.$neutral-dark;
+			border-color: colors.$neutral-dark;
+		}
+	}
+
+	/* opcional: botó a 100% d’amplada si el vols ‘block’ */
+	&--block {
+		width: 100%;
 	}
 }
 
