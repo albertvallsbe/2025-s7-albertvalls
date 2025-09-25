@@ -62,3 +62,11 @@
 
 	color: colors.$primary-main;
 }
+
+%text-label {
+	font-weight: 600;
+	color: colors.$neutral-darker;
+	// color: colors.$danger-darker;
+	margin: 0;
+	font-size: 1rem;
+}

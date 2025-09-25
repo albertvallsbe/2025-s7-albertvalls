@@ -1,16 +1,17 @@
 @use "sass:color";
 @use "../base/variables";
 @use "../base/colors";
+@use "../base/typography";
 
 .form {
 	display: grid;
-	row-gap: variables.$size-large;
-	max-width: 36rem;
+	row-gap: variables.$size-medium;
+	max-width: 25rem;
 	margin: 0 auto;
 	padding: variables.$size-large;
 
-	background: colors.$neutral-lighter;
-	border: 1px solid colors.$primary-main;
+	background-color: colors.$neutral-lighter;
+	border: variables.$border solid colors.$primary-lighter;
 	border-radius: variables.$border-radius;
 	box-shadow: variables.$shadow-light;
 
@@ -22,9 +23,13 @@
 
 	/* -------- Etiqueta -------- */
 	&__label {
-		font-size: 0.95rem;
-		color: colors.$primary-dark;
-		font-weight: 600;
+		// font-size: 0.95rem;
+		// color: colors.$neutral-darker;
+		// color: colors.$danger-main;
+		// font-weight: 600;
+
+		@extend %text-label;
+
 
 		&--visually-hidden {
 			position: absolute !important;
@@ -49,10 +54,12 @@
 		color: colors.$neutral-darker;
 		background: colors.$neutral-lightest;
 
-		border: 1px solid colors.$primary-main;
+		border: 1px solid colors.$primary-lighter;
 		border-radius: variables.$border-radius;
 
 		transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+
+		@extend %text-label;
 
 		&::placeholder {
 			color: colors.$neutral-dark;
@@ -97,6 +104,12 @@
 	// textarea.form__control {
 	// 	/* hereten de &__control */
 	// }
+
+	/* Select */
+	input.form__control {
+		padding-right: 2rem;
+		background-image: none;
+	}
 
 	/* Select */
 	select.form__control {
