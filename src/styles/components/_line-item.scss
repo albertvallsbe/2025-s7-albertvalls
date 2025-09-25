@@ -27,8 +27,7 @@
 	margin-bottom: variables.$size-small;
 
 	&__price-label {
-		@extend %price-label;
-
+		@extend %text-medium;
 		justify-self: start;
 		align-self: end;
 		text-align: left;

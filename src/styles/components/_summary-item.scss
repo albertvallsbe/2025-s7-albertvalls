@@ -21,7 +21,7 @@
 	}
 
 	&__price-label {
-		@extend %price-label;
+		@extend %text-medium;
 
 		justify-self: end;
 	}

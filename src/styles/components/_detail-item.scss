@@ -17,9 +17,19 @@
 	border-radius: variables.$border-radius;
 	box-shadow: variables.$shadow-light;
 
-	&__price-label {
-		@extend %price-label;
+	&__header {
+		display: grid;
+		justify-items: center;
+		row-gap: variables.$size-small;
+		text-align: center;
 
+		h1 {
+			@extend %heading-doble-extra-large;
+		}
+	}
+
+	&__price-label {
+		@extend %text-medium;
 		justify-self: center;
 		text-align: center;
 
@@ -27,20 +37,11 @@
 	}
 }
 
-/* --- Header --- */
-.detail-item__header {
-	display: grid;
-	justify-items: center;
-	row-gap: variables.$size-small;
-	text-align: center;
-	color: colors.$primary-main;
-}
-
-.detail-item__title {
-	margin: 0;
-	font-size: 1.75rem;
-	font-weight: 700;
-}
+// .detail-item__title {
+// 	margin: 0;
+// 	font-size: 1.75rem;
+// 	font-weight: 700;
+// }
 
 .detail-item__date {
 	font-size: .95rem;

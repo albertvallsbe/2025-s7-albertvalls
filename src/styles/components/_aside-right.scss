@@ -28,7 +28,7 @@
 	}
 
 	&__price-label {
-		@extend %price-label;
+		@extend %text-medium;
 	}
 
 	&__circle-icon {
@@ -46,11 +46,13 @@
 
 		border-bottom: 1px solid colors.$primary-lighter;
 		background: colors.$neutral-lighter;
-		color: colors.$primary-main;
+		// color: colors.$primary-main;
 
 		h2 {
-			justify-self: center;
+			@extend %heading-extra-large;
 
+			justify-self: center;
+			text-align: center;
 		}
 	}
 
@@ -88,15 +90,15 @@
 
 		background: colors.$neutral-lighter;
 
-		.aside-right__title {
-			font-size: 1rem;
-			font-weight: 500;
+		h3 {
+			@extend %text-medium;
 
-			color: colors.$primary-main;
+			justify-self: center;
+			text-align: center;
 		}
 
-		.aside-right__desc {
-			font-size: .9rem;
+		p {
+			@extend %text-extra-small;
 
 			color: colors.$neutral-darker;
 		}

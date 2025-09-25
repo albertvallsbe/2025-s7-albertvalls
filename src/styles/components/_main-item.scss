@@ -29,7 +29,7 @@
 	}
 
 	&__price-label {
-		@extend %price-label;
+		@extend %text-medium;
 
 		white-space: nowrap;
 	}

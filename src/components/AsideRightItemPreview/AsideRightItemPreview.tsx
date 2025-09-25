@@ -30,7 +30,7 @@ export const AsideRightItemPreview = () => {
 	return (
 		<aside className="aside-right">
 			<div className="aside-right__header">
-				<h2>Detail</h2>
+				<h2>{item.title ?? item.name}</h2>
 				<button
 					className="aside-right__circle-icon"
 					type="button"
@@ -50,18 +50,18 @@ export const AsideRightItemPreview = () => {
 			</figure>
 
 			<div className="aside-right__body">
+				<h3>{item.title ?? item.name}</h3>
+				<p>{item.overview}</p>
 				<span className="aside-right__price-label">
 					{Math.round(item.vote_average ?? 0) * 10} / 100
 				</span>
-				<span className="aside-right__title">{item.title ?? item.name}</span>
-				<p className="aside-right__desc">{item.overview}</p>
 			</div>
 
 			<div className="aside-right__footer">
 				<Link
 					to={`/movie/${item.id}`}
 					onClick={() => dispatch(closeDetail())}
-					className="button__text"
+					className="button button--primary"
 				>
 					See more
 				</Link>

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Layout } from "../../components/Layout/Layout";
+import { Typo } from "../../components/Typo/Typo";
 
 export const WelcomePage = (): JSX.Element => (
 	<>
@@ -12,6 +13,7 @@ export const WelcomePage = (): JSX.Element => (
 			<Link to="/home">
 				<button className="button__text">Entrar a la home</button>
 			</Link>
+			<Typo />
 		</Layout>
 	</>
 );

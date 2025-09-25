@@ -15,21 +15,13 @@
 	border-radius: variables.$border-radius;
 	box-shadow: variables.$shadow-light;
 
-	/* -------- Grup (etiqueta + control + missatges) -------- */
 	&__group {
 		display: grid;
 		row-gap: variables.$size-small;
 	}
 
-	/* -------- Etiqueta -------- */
 	&__label {
-		// font-size: 0.95rem;
-		// color: colors.$neutral-darker;
-		// color: colors.$danger-main;
-		// font-weight: 600;
-
-		@extend %text-label;
-
+		@extend %text-small;
 
 		&--visually-hidden {
 			position: absolute !important;
@@ -44,7 +36,6 @@
 		}
 	}
 
-	/* -------- Controls base -------- */
 	&__control {
 		display: block;
 		width: 100%;
@@ -59,7 +50,7 @@
 
 		transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 
-		@extend %text-label;
+		@extend %text-small;
 
 		&::placeholder {
 			color: colors.$neutral-dark;

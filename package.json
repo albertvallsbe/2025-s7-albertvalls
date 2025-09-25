@@ -9,8 +9,8 @@
 		"type-w": "tsc -w --noEmit --preserveWatchOutput",
 		"lint": "eslint .",
 		"preview": "vite preview",
-		"sass": "sass ./src/styles/main.scss ./public/style.css",
-		"sass-w": "sass --watch ./src/styles/main.scss ./public/style.css",
+		"sass": "sass ./src/styles/main.scss ./public/style.css --style=expanded --no-source-map",
+		"sass-w": "sass --watch ./src/styles/main.scss ./public/style.css --style=expanded --no-source-map",
 		"test": "jest",
 		"test-c": "jest --coverage"
 	},

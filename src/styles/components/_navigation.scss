@@ -1,6 +1,7 @@
+@use "sass:color";
 @use "../base/colors";
 @use "../base/variables";
-@use "sass:color";
+@use "../base/typography";
 
 .navbar {
 	position: fixed;
@@ -20,41 +21,39 @@
 
 	padding-block: 0;
 
-	// width: 100%;
-	// box-sizing: border-box;
-
 	@media screen and (min-width: variables.$breakpoint-medium) {
 		grid-template-columns: auto 1fr;
 	}
-}
 
-.navbar__left,
-.navbar__right {
-	display: grid;
-	grid-auto-flow: column;
-	grid-auto-columns: max-content;
-	align-items: center;
-	gap: 0.75rem;
-	list-style: none;
-	justify-content: start;
-	margin: 0;
-	padding: 0;
+	&__left,
+	&__right {
+		display: grid;
+		grid-auto-flow: column;
+		grid-auto-columns: max-content;
+		align-items: center;
+		gap: 0.75rem;
+		list-style: none;
+		justify-content: start;
+		margin: 0;
+		padding: 0;
 
-	@media (min-width: variables.$breakpoint-medium) {
-		gap: 1.25rem;
+		@media (min-width: variables.$breakpoint-medium) {
+			gap: 1.25rem;
+		}
+	}
+
+	&__left {
+		justify-content: start;
+	}
+
+	&__right {
+		justify-content: end;
 	}
 }
 
-.navbar__left {
-	justify-content: start;
-}
-
-.navbar__right {
-	justify-content: end;
-}
 
 .navbar__brand {
-	font-weight: 700;
+	// font-weight: 700;
 	font-size: 1.125rem;
 	margin-right: 0.5rem;
 }
@@ -62,6 +61,7 @@
 .navbar__brand-link {
 	color: colors.$primary-main;
 	text-decoration: none;
+	// @extend %price-label;
 
 	&:hover,
 	&:focus {
@@ -77,10 +77,12 @@
 	padding: 0.25rem 0;
 	transition: color 0.15s ease;
 
+
+
 	&:hover,
 	&:focus {
 		text-decoration: underline;
-		text-underline-offset: 4px; // equival a Tailwind underline-offset-4
+		text-underline-offset: 4px;
 	}
 
 	&.is-active {
