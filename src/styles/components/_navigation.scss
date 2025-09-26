@@ -26,7 +26,8 @@
 	}
 
 	&__left,
-	&__right {
+	&__right,
+	ul {
 		display: grid;
 		grid-auto-flow: column;
 		grid-auto-columns: max-content;
@@ -49,69 +50,60 @@
 	&__right {
 		justify-content: end;
 	}
-}
 
+	h3 {
+		@extend %heading-extra-large;
 
-.navbar__brand {
-	// font-weight: 700;
-	font-size: 1.125rem;
-	margin-right: 0.5rem;
-}
+		margin-right: 0.5rem;
+		color: colors.$primary-main;
+		text-decoration: none;
 
-.navbar__brand-link {
-	color: colors.$primary-main;
-	text-decoration: none;
-	// @extend %price-label;
-
-	&:hover,
-	&:focus {
-		text-decoration: underline;
-		text-underline-offset: 4px;
-	}
-}
-
-.navbar__link {
-	color: colors.$primary-main;
-	font-weight: 400;
-	text-decoration: none;
-	padding: 0.25rem 0;
-	transition: color 0.15s ease;
-
-
-
-	&:hover,
-	&:focus {
-		text-decoration: underline;
-		text-underline-offset: 4px;
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+			text-underline-offset: 4px;
+		}
 	}
 
-	&.is-active {
-		text-decoration: underline;
-		text-underline-offset: 4px;
-		color: color.scale(colors.$primary-main, $lightness: -10%);
+	ul {
+		.navbar__link {
+			@extend %text-small;
+
+			text-decoration: none;
+			list-style: none;
+			padding: 0.25rem 0;
+			transition: color 0.15s ease;
+
+			// color: colors.$primary-main;
+			// color: olivedrab;
+
+			&:hover,
+			&:focus {
+				text-decoration: underline;
+				text-underline-offset: 4px;
+			}
+
+			&.is-active {
+				text-decoration: underline;
+				text-underline-offset: 4px;
+				color: colors.$primary-main;
+				font-weight: 600;
+			}
+		}
 	}
-}
 
-.navbar__email {
-	color: color.scale(colors.$neutral-dark, $lightness: -10%);
-	font-size: 0.95rem;
-}
+	&__user,
+	button {
+		@extend %text-small;
 
-.navbar__cart {
-	color: colors.$neutral-dark;
-	display: inline-flex;
-	align-items: center;
-	gap: 0.25rem;
-}
+		color: colors.$neutral-dark;
+	}
 
-.navbar__location {
-	font-size: 1.2rem;
-	font-weight: 600;
-	color: colors.$primary-main;
-}
-
-.navbar__temp {
-	font-size: 1.2rem;
-	color: color.scale(colors.$primary-main, $lightness: -20%);
-	font-weight: 500;
+	/** Shoppyis **/
+	.navbar__cart {
+		color: colors.$neutral-dark;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.25rem;
+	}
 }

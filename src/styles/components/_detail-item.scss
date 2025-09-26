@@ -25,6 +25,8 @@
 
 		h1 {
 			@extend %heading-doble-extra-large;
+
+			color: colors.$primary-main;
 		}
 	}
 

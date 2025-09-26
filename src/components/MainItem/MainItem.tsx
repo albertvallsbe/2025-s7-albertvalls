@@ -30,13 +30,10 @@ export const MainItem = ({ data }: CardProps) => {
 					alt={data.title ?? data.name ?? "Movie"}
 				/>
 			</figure>
-			<p className="main-item__meta">
-				<span className="main-item__title"> {data.title ?? data.name}</span>
-				<span className="main-item__price-label">
-					{" "}
-					{Math.round((data.vote_average ?? 0) * 10)} / 100
-				</span>
-			</p>
+			<div className="main-item__body">
+				<h3> {data.title ?? data.name}</h3>
+				<p> {Math.round((data.vote_average ?? 0) * 10)} / 100</p>
+			</div>
 		</div>
 	);
 };

@@ -31,7 +31,7 @@
 		@extend %text-medium;
 	}
 
-	&__circle-icon {
+	.circle-icon {
 		@extend %circle-icon;
 	}
 
@@ -91,16 +91,19 @@
 		background: colors.$neutral-lighter;
 
 		h3 {
-			@extend %text-medium;
+			@extend %text-large;
 
 			justify-self: center;
 			text-align: center;
+
+			color: colors.$primary-main;
 		}
 
 		p {
 			@extend %text-extra-small;
 
 			color: colors.$neutral-darker;
+
 		}
 	}
 
@@ -125,6 +128,7 @@
 		background: colors.$neutral-lighter;
 	}
 
+	/***** Shoppies ******/
 	&__total {
 		display: grid;
 
@@ -136,4 +140,11 @@
 	&__total-label {
 		opacity: .7;
 	}
+
+	/***** End Shoppies ******/
+
+	// h3,
+	// h2 {
+	// 	color: inherit;
+	// }
 }

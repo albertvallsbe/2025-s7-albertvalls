@@ -61,9 +61,13 @@ export const LoginForm = (): JSX.Element => {
 	return (
 		<section className="auth auth--center">
 			<div className="auth__card">
-				<h1 className="auth__title">Sign in</h1>
-
 				<form onSubmit={handleSubmit} className="form">
+					<div className="form__header">
+						<h1 className="auth__title">Sign in</h1>
+					</div>
+					<figure className="form__figure">
+						<img src="../../../public/logo-web.jpg" alt="logo" />
+					</figure>
 					{authenticationStatus === "failed" && (
 						<div className="form__alert form__alert--error" role="alert">
 							<p className="form__alert__text" aria-live="polite">

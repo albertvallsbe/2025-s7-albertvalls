@@ -20,8 +20,47 @@
 		row-gap: variables.$size-small;
 	}
 
+	&__header {
+		align-items: center;
+		gap: variables.$size-small;
+		padding: 1rem;
+		color: colors.$primary-main;
+
+
+		h1 {
+			@extend %heading-triple-extra-large;
+
+			justify-self: center;
+			text-align: center;
+		}
+	}
+
+	&__figure {
+		display: grid;
+		overflow: hidden;
+
+		align-items: center;
+		justify-items: center;
+
+		padding: 1rem;
+		min-height: 0;
+
+		background: colors.$neutral-lightest;
+		border-radius: variables.$border-radius;
+
+		img {
+			display: block;
+
+			width: 80%;
+			height: 100%;
+
+
+			object-fit: cover;
+		}
+	}
+
 	&__label {
-		@extend %text-small;
+		@extend %text-medium;
 
 		&--visually-hidden {
 			position: absolute !important;

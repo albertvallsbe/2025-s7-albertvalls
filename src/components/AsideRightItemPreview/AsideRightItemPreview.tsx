@@ -32,7 +32,7 @@ export const AsideRightItemPreview = () => {
 			<div className="aside-right__header">
 				<h2>{item.title ?? item.name}</h2>
 				<button
-					className="aside-right__circle-icon"
+					className="circle-icon"
 					type="button"
 					aria-label="Close detail"
 					onClick={() => dispatch(closeDetail())}
