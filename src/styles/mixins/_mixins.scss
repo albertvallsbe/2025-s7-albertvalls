@@ -5,26 +5,26 @@
 @mixin boxLateralShadow($side: bottom,
 	$borderColor: transparent,
 	$axis: 3px,
-	$shadowColor: $neutral_main) {
+	$shadowColor: $neutral-main) {
 
 	@if $side =='top' {
-		border-top: 1px solid $borderColor;
+		border-top: variables.$border solid $borderColor;
 		box-shadow: 0px ($axis * -1) ($axis * 2) 0px $shadowColor;
 	}
 
 	@else if $side =='bottom' {
-		border-bottom: 1px solid $borderColor;
+		border-bottom: variables.$border solid $borderColor;
 		box-shadow: 0px $axis (
 			$axis * 2) 0px $shadowColor;
 	}
 
 	@else if $side =='left' {
-		border-left: 1px solid $borderColor;
+		border-left: variables.$border solid $borderColor;
 		box-shadow: -$axis 0px ($axis * 2) 0px $shadowColor;
 	}
 
 	@else if $side =='right' {
-		border-right: 1px solid $borderColor;
+		border-right: variables.$border solid $borderColor;
 		box-shadow: $axis 0px ($axis * 2) 0px $shadowColor;
 	}
 }
@@ -32,11 +32,11 @@
 @mixin boxShadow($borderColor: transparent,
 	$radius: 0,
 	$axis: 3px,
-	$shadowColor: $neutral_main,
-	$shadowColorSecondary: $neutral_light) {
+	$shadowColor: $neutral-main,
+	$shadowColorSecondary: $neutral-light) {
 
 	border-radius: $radius;
-	border: 1px solid $borderColor;
+	border: variables.$border solid $borderColor;
 	box-shadow:
 		$axis $axis (
 		$axis * 2) $shadowColor,

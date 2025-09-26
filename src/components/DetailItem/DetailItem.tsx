@@ -16,7 +16,7 @@ export const ItemDetail = ({ movie }: ItemDetailProps): JSX.Element => {
 	return (
 		<article className="detail-item">
 			<header className="detail-item__header">
-				<h1 className="detail-item__title">{title}</h1>
+				<h1>{title}</h1>
 			</header>
 
 			<figure className="detail-item__media">
@@ -28,9 +28,10 @@ export const ItemDetail = ({ movie }: ItemDetailProps): JSX.Element => {
 			</figure>
 
 			<section className="detail-item__body">
-				{date && <p className="detail-item__date">{date}</p>}
-				<p className="detail-item__price-label">{score100} / 100</p>
-
+				<div className="columns">
+					{date && <p>{date}</p>}
+					{score100 && <p>{score100} / 100</p>}
+				</div>
 				<p>{movie.overview}</p>
 			</section>
 		</article>

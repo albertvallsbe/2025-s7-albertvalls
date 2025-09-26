@@ -63,7 +63,7 @@ export const LoginForm = (): JSX.Element => {
 			<div className="auth__card">
 				<form onSubmit={handleSubmit} className="form">
 					<div className="form__header">
-						<h1 className="auth__title">Sign in</h1>
+						<h1>Sign in</h1>
 					</div>
 					<figure className="form__figure">
 						<img src="../../../public/logo-web.jpg" alt="logo" />
@@ -74,7 +74,6 @@ export const LoginForm = (): JSX.Element => {
 								{errorStatusCode ? `${errorStatusCode} · ` : null}
 								{errorMessage ?? "No s'ha pogut iniciar sessió."}
 							</p>
-							{/* Si vols un botonet per “tancar” visualment (no canvia l'estat) */}
 							<button
 								type="button"
 								className="form__alert__close"

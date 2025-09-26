@@ -11,12 +11,12 @@
 	grid-template-columns: 1fr;
 	align-items: center;
 
-	padding: 0.75rem 2.5rem;
+	padding: variables.$size-small variables.$size-extra-large;
 	min-height: 50px;
 
 	background-color: colors.$neutral-lightest;
-	border-bottom: 0.5px solid colors.$primary-main;
-	box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15);
+	border-bottom: variables.$border solid colors.$primary-main;
+	box-shadow: 0 0.5rem 1.5rem rgba(colors.$neutral-darker, 0.15);
 	backdrop-filter: saturate(180%) blur(8px);
 
 	padding-block: 0;
@@ -71,11 +71,8 @@
 
 			text-decoration: none;
 			list-style: none;
-			padding: 0.25rem 0;
+			padding: variables.$size-extra-small 0;
 			transition: color 0.15s ease;
-
-			// color: colors.$primary-main;
-			// color: olivedrab;
 
 			&:hover,
 			&:focus {
@@ -104,6 +101,6 @@
 		color: colors.$neutral-dark;
 		display: inline-flex;
 		align-items: center;
-		gap: 0.25rem;
+		gap: variables.$size-extra-small;
 	}
 }

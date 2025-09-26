@@ -4,55 +4,7 @@
 @use "../base/typography";
 @use "../elements/icons";
 
-// Obsolets
-.button__icon {
-	background: transparent;
-	border: variables.$border solid colors.$primary-main;
-	border-radius: variables.$border-radius;
-	color: colors.$neutral-dark;
-	width: 1.5rem;
-	height: 1.5rem;
-	display: grid;
-	place-items: center;
-	cursor: pointer;
-	transition: background 0.2s, transform 0.1s;
-
-
-	&:disabled {
-		opacity: 0.4;
-		cursor: not-allowed;
-	}
-
-	&:hover:not(:disabled) {
-		background: colors.$primary-main;
-		color: colors.$neutral-lightest;
-	}
-}
-
-.list-controls__button {
-	display: inline-grid;
-	place-items: center;
-	width: 2.75rem;
-	height: 2.5rem;
-	border: variables.$border solid colors.$primary-main;
-	border-radius: variables.$border-radius;
-	background: transparent;
-	color: colors.$neutral-dark;
-	cursor: pointer;
-	transition: background 0.2s, color 0.2s;
-
-	&:hover {
-		background: colors.$primary-main;
-		color: colors.$neutral-lightest;
-	}
-
-	&:disabled {
-		opacity: 0.4;
-		cursor: not-allowed;
-	}
-}
-
-// Navbar
+// Navbar shoppy
 .checkout-card {
 	display: grid;
 	place-items: center;
@@ -70,7 +22,7 @@
 	}
 }
 
-/* -------- Botons reutilitzables (fora del bloc si els feu servir arreu) -------- */
+// End Navbar shoppy
 
 .button {
 	display: grid;
@@ -79,7 +31,7 @@
 	min-height: 2.5rem;
 	padding: 0.5rem 1.25rem;
 
-	border: 1px solid transparent;
+	border: variables.$border solid transparent;
 	border-radius: variables.$border-radius;
 
 	background: colors.$neutral-light;
@@ -122,27 +74,5 @@
 	/* opcional: botó a 100% d’amplada si el vols ‘block’ */
 	&--block {
 		width: 100%;
-	}
-}
-
-// Button
-.button__text {
-	display: grid;
-
-	grid-template-columns: 1fr;
-
-	margin: 0.5rem auto;
-	padding: variables.$size-small variables.$size-large;
-
-	font-size: 1rem;
-
-	color: colors.$neutral-lightest;
-	background: colors.$primary-main;
-	border-radius: variables.$border-radius;
-
-	cursor: pointer;
-
-	&:hover {
-		background: color.scale(colors.$primary-main, $lightness: -30%);
 	}
 }

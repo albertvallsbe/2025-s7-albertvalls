@@ -6,13 +6,11 @@
 
 .main-item {
 	display: grid;
-	width: 100%;
-	// width: variables.$main-item-width;
-	height: variables.$main-item-height;
-
-	// grid-template-rows: 1fr auto;
 	grid-template-rows:
 		calc(variables.$main-item-height - variables.$main-item-meta-h) variables.$main-item-meta-h;
+
+	width: 100%;
+	height: variables.$main-item-height;
 
 	background: colors.$neutral-lighter;
 	border: variables.$border solid colors.$primary-main;
@@ -59,12 +57,14 @@
 		position: absolute;
 		left: variables.$size-small;
 		bottom: variables.$size-small;
-		padding: .25rem .75rem;
-		font-size: .75rem;
+		padding: variables.$size-extra-small variables.$size-medium;
+		font-size: variables.$font-xs;
 		color: colors.$neutral-darker;
 		background: color.change(colors.$neutral-lighter, $alpha: .6);
 		border-radius: variables.$border-radius;
 	}
+
+	/* End Shoppyis */
 
 	&__body {
 		height: variables.$main-item-meta-h;
@@ -73,9 +73,8 @@
 		grid-template-columns: 1fr auto;
 		align-items: center;
 		gap: variables.$size-small;
-		padding: variables.$main-item-meta-pad-y .75rem;
+		padding: variables.$main-item-meta-pad-y variables.$size-medium;
 		color: colors.$primary-dark;
-		// color: pink;
 		overflow: hidden;
 
 		h3 {
@@ -86,7 +85,7 @@
 			-webkit-line-clamp: variables.$main-item-meta-lines;
 			-webkit-box-orient: vertical;
 			overflow: hidden;
-			line-height: variables.$main-item-meta-line-h;
+			line-height: 24px;
 		}
 
 		p {

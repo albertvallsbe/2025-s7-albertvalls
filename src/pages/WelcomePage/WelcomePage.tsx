@@ -5,14 +5,16 @@ import { Typo } from "../../components/Typo/Typo";
 export const WelcomePage = (): JSX.Element => (
 	<>
 		<Layout>
-			<article className="card welcome-card">
-				<div className="card__item">
-					<h1 className="heading">Benvingut/da!</h1>
+			<article className="form">
+				<div className="form__header">
+					<h1>Benvingut/da!</h1>
+				</div>
+				<div>
+					<Link to="/home" className="aside-right__body">
+						<button className="button button--primary">Entrar a la home</button>
+					</Link>
 				</div>
 			</article>
-			<Link to="/home">
-				<button className="button__text">Entrar a la home</button>
-			</Link>
 			<Typo />
 		</Layout>
 	</>

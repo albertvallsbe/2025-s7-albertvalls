@@ -18,12 +18,10 @@ body {
 
 html {
 	font-size: 16px;
-	// font-size: 62.5%;
 }
 
 body {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	font-size: 1rem;
 	line-height: 1.5;
 	color: colors.$neutral-dark;
 	background-color: colors.$neutral-lighter;
@@ -67,7 +65,6 @@ h4 {
 
 p {
 	margin-bottom: 1rem;
-	// font-weight: 600;
 }
 
 ul[role="list"],

@@ -23,7 +23,7 @@
 	&__header {
 		align-items: center;
 		gap: variables.$size-small;
-		padding: 1rem;
+		padding: variables.$size-medium;
 		color: colors.$primary-main;
 
 
@@ -42,7 +42,7 @@
 		align-items: center;
 		justify-items: center;
 
-		padding: 1rem;
+		padding: variables.$size-medium;
 		min-height: 0;
 
 		background: colors.$neutral-lightest;
@@ -84,7 +84,7 @@
 		color: colors.$neutral-darker;
 		background: colors.$neutral-lightest;
 
-		border: 1px solid colors.$primary-lighter;
+		border: variables.$border solid colors.$primary-lighter;
 		border-radius: variables.$border-radius;
 
 		transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
@@ -96,9 +96,9 @@
 		}
 
 		&:focus {
-			outline: 2px solid colors.$primary-main;
-			outline-offset: 2px;
-			box-shadow: 0 0 0 2px rgba(0, 56, 184, 0.20);
+			outline: 1px solid colors.$primary-main;
+			outline-offset: 1px;
+			box-shadow: 0 0 0 2px rgba(colors.$primary-main, 0.20);
 		}
 
 		&:disabled {
@@ -181,7 +181,7 @@
 			height: 1rem;
 			margin: 0;
 
-			border: 1px solid colors.$primary-main;
+			border: variables.$border solid colors.$primary-main;
 			border-radius: 0.25rem;
 			appearance: none;
 			display: grid;
@@ -241,7 +241,7 @@
 
 		padding: variables.$size-medium;
 		border-radius: variables.$border-radius;
-		border: 1px solid colors.$primary-main;
+		border: variables.$border solid colors.$primary-main;
 		/* default, sobreescrit per variants */
 		background: colors.$neutral-lightest;
 
@@ -260,7 +260,7 @@
 		}
 
 		&__close {
-			border: 1px solid transparent;
+			border: variables.$border solid transparent;
 			background: transparent;
 			border-radius: variables.$border-radius;
 			padding: variables.$size-extra-small variables.$size-small;
@@ -278,23 +278,6 @@
 
 		.button {
 			min-width: 10rem;
-		}
-	}
-}
-
-/* -------- Variant responsive amb etiquetes a la dreta -------- */
-@media (min-width: variables.$breakpoint-medium) {
-	.form--two-columns {
-		.form__group {
-			display: grid;
-			grid-template-columns: 12rem 1fr;
-			column-gap: variables.$size-large;
-			align-items: center;
-		}
-
-		.form__label {
-			justify-self: end;
-			text-align: right;
 		}
 	}
 }

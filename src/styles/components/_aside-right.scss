@@ -42,9 +42,9 @@
 		align-items: center;
 		gap: variables.$size-small;
 
-		padding: 1rem;
+		padding: variables.$size-medium;
 
-		border-bottom: 1px solid colors.$primary-lighter;
+		border-bottom: variables.$border solid colors.$primary-lighter;
 		background: colors.$neutral-lighter;
 		// color: colors.$primary-main;
 
@@ -63,7 +63,7 @@
 		align-items: center;
 		justify-items: center;
 
-		padding: 1rem;
+		padding: variables.$size-medium;
 		min-height: 0;
 
 		background: colors.$neutral-light;
@@ -124,7 +124,7 @@
 		display: grid;
 		gap: variables.$size-small;
 		padding: variables.$size-medium;
-		border-top: 1px solid color.change(colors.$primary-main, $alpha: .25);
+		border-top: variables.$border solid color.change(colors.$primary-main, $alpha: .25);
 		background: colors.$neutral-lighter;
 	}
 

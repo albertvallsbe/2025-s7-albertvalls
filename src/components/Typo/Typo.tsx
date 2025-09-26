@@ -1,7 +1,7 @@
 // src/components/Typo/Typo.tsx
 import React from "react";
 
-/* 1) Tags textuals amb children (excloem void tags) */
+/* Tags textuals amb children (excloem void tags) */
 type TextualTag =
 	| "h1"
 	| "h2"
@@ -13,28 +13,19 @@ type TextualTag =
 	| "label"
 	| "div";
 
-/* 2) Models d’ítem: unió discriminada */
+/* Models d’ítem */
 type TextItem<T extends TextualTag = "p"> = {
 	kind: "text";
-	label: string; // nom de la classe/mostra que es veu a la capçalera de la targeta
+	label: string; // etiqueta que mostrem a la capçalera de la targeta
 	className: string; // classe CSS a provar
 	tag: T; // etiqueta semàntica a renderitzar
 	content: string; // text de mostra
 	props?: React.ComponentPropsWithoutRef<T>;
 };
 
-type InputItem = {
-	kind: "input";
-	label: string;
-	className: string;
-	tag: "input";
-	props?: React.ComponentPropsWithoutRef<"input">;
-};
+type Item = TextItem<TextualTag>;
 
-// ✅ Important: passem el genèric explícit perquè no caigui a "p"
-type Item = TextItem<TextualTag> | InputItem;
-
-/* 3) Render helpers tipats */
+/* Render helper */
 function RenderText<T extends TextualTag>({
 	tag,
 	className,
@@ -49,133 +40,64 @@ function RenderText<T extends TextualTag>({
 	return React.createElement(tag, { className, ...props }, content);
 }
 
-function RenderInput({
-	className,
-	props,
-}: {
-	className: string;
-	props?: React.ComponentPropsWithoutRef<"input">;
-}) {
-	return <input className={className} {...props} />;
-}
-
 export const Typo: React.FC = () => {
-	const lorem =
-		"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at dui a arcu tincidunt pulvinar. Curabitur vel justo a urna dictum interdum.";
+	// Text curt amb ascendents/descendents per comprovar alçades de línia
+	const sample = "Patajapa — The quick brown fox jumps over 123";
 
-	// 4) Mostres: marca cada ítem amb kind correcte
+	// Mostres finals (una per mida)
 	const items: Item[] = [
 		{
 			kind: "text",
-			label: ".heading",
-			className: "heading",
+			label: ".text-extra-small (14px)",
+			className: "text-extra-small",
+			tag: "p",
+			content: sample,
+		},
+		{
+			kind: "text",
+			label: ".text-small (16px)",
+			className: "text-small",
+			tag: "p",
+			content: sample,
+		},
+		{
+			kind: "text",
+			label: ".text-medium (18px)",
+			className: "text-medium",
+			tag: "p",
+			content: sample,
+		},
+		{
+			kind: "text",
+			label: ".text-large (20px)",
+			className: "text-large",
+			tag: "p",
+			content: sample,
+		},
+		{
+			kind: "text",
+			label: ".heading-extra-large (24px)",
+			className: "heading-extra-large",
 			tag: "h2",
-			content: "Heading base",
+			content: "Heading XL — Patajapa",
 		},
 		{
 			kind: "text",
-			label: ".heading__large",
-			className: "heading__large",
-			tag: "h1",
-			content: "Heading gran",
-		},
-		{
-			kind: "text",
-			label: ".heading__medium",
-			className: "heading__medium",
+			label: ".heading-doble-extra-large (28px)",
+			className: "heading-doble-extra-large",
 			tag: "h2",
-			content: "Heading mitjà",
-		},
-
-		{
-			kind: "text",
-			label: ".text",
-			className: "text",
-			tag: "p",
-			content: lorem,
+			content: "Heading 2XL — Patajapa",
 		},
 		{
 			kind: "text",
-			label: ".text__right",
-			className: "text__right",
-			tag: "p",
-			content: "Text alineat a la dreta",
-		},
-		{
-			kind: "text",
-			label: ".text__body",
-			className: "text__body",
-			tag: "p",
-			content: lorem,
-		},
-		{
-			kind: "text",
-			label: ".text__caption",
-			className: "text__caption",
-			tag: "small",
-			content: "Peu / caption de mostra",
-		},
-		{
-			kind: "text",
-			label: ".text__display",
-			className: "text__display",
+			label: ".heading-triple-extra-large (32px)",
+			className: "heading-triple-extra-large",
 			tag: "h1",
-			content: "Display text",
-		},
-
-		{
-			kind: "input",
-			label: ".placeholder (::placeholder)",
-			className: "placeholder",
-			tag: "input",
-			props: { type: "text", placeholder: "Això és un placeholder d’exemple" },
-		},
-
-		{
-			kind: "text",
-			label: ".title",
-			className: "title",
-			tag: "h1",
-			content: "Títol corporatiu",
-		},
-		{
-			kind: "text",
-			label: ".subtitle",
-			className: "subtitle",
-			tag: "h2",
-			content: "Subtítol corporatiu",
-		},
-		{
-			kind: "text",
-			label: ".secondary",
-			className: "secondary",
-			tag: "p",
-			content: "Text secundari / auxiliar",
-		},
-		{
-			kind: "text",
-			label: ".name",
-			className: "name",
-			tag: "span",
-			content: "Nom propi d’exemple",
-		},
-		{
-			kind: "text",
-			label: ".content",
-			className: "content",
-			tag: "p",
-			content: "Contingut centrat amb trencament automàtic de paraules",
-		},
-		{
-			kind: "text",
-			label: ".company",
-			className: "company",
-			tag: "span",
-			content: "Acme Corp.",
+			content: "Heading 3XL — Patajapa",
 		},
 	];
 
-	// Estils locals per a la demo
+	// Estils locals mínims per la demo
 	const wrapStyle: React.CSSProperties = {
 		display: "grid",
 		gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
@@ -210,10 +132,10 @@ export const Typo: React.FC = () => {
 		<section aria-labelledby="typo-title" style={{ padding: "1rem 0" }}>
 			<h1
 				id="typo-title"
-				className="heading__large"
+				className="heading-triple-extra-large"
 				style={{ textAlign: "center" }}
 			>
-				Tipografia · Galeria de classes
+				Tipografia · Escala final
 			</h1>
 
 			<div style={wrapStyle}>
@@ -221,40 +143,15 @@ export const Typo: React.FC = () => {
 					<div key={idx} style={cardStyle}>
 						<div style={cardHeaderStyle}>{item.label}</div>
 						<div style={cardBodyStyle}>
-							{item.kind === "input" ? (
-								<RenderInput className={item.className} props={item.props} />
-							) : (
-								<RenderText
-									tag={item.tag}
-									className={item.className}
-									content={item.content}
-									props={item.props}
-								/>
-							)}
+							<RenderText
+								tag={item.tag}
+								className={item.className}
+								content={item.content}
+								props={item.props}
+							/>
 						</div>
 					</div>
 				))}
-
-				{/* Recordatori: placeholders de Sass no són classes HTML */}
-				<div style={cardStyle}>
-					<div style={cardHeaderStyle}>%price-label (placeholder Sass)</div>
-					<div style={cardBodyStyle}>
-						<p className="text__caption">
-							Aplica’l amb <code>@extend %price-label</code> dins d’una regla
-							existent (p. ex. <code>.preu</code>).
-						</p>
-					</div>
-				</div>
-
-				<div style={cardStyle}>
-					<div style={cardHeaderStyle}>%text-label (placeholder Sass)</div>
-					<div style={cardBodyStyle}>
-						<p className="text__caption">
-							Aplica’l amb <code>@extend %text-label</code> (p. ex. a{" "}
-							<code>.form__label</code>). No és una classe HTML.
-						</p>
-					</div>
-				</div>
 			</div>
 		</section>
 	);
