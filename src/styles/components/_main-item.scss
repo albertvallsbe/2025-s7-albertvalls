@@ -12,7 +12,7 @@
 	width: 100%;
 	height: variables.$main-item-height;
 
-	background: colors.$neutral-lighter;
+	background-color: colors.$neutral-lighter;
 	border: variables.$border solid colors.$primary-main;
 	border-radius: variables.$border-radius;
 	box-shadow: variables.$shadow-light;
@@ -26,8 +26,6 @@
 		box-shadow: 0 .6rem 1.6rem rgba(0, 0, 0, .12);
 	}
 
-
-	/** Shoppyis */
 	.circle-icon {
 		@extend %circle-icon;
 
@@ -43,7 +41,7 @@
 		height: 100%;
 		min-height: 0;
 		overflow: hidden;
-		background: colors.$neutral-light;
+		background-color: colors.$neutral-light;
 
 		.main-item__image {
 			width: 100%;
@@ -52,7 +50,6 @@
 		}
 	}
 
-	/* Shoppyis */
 	.main-item__tag {
 		position: absolute;
 		left: variables.$size-small;
@@ -60,11 +57,9 @@
 		padding: variables.$size-extra-small variables.$size-medium;
 		font-size: variables.$font-xs;
 		color: colors.$neutral-darker;
-		background: color.change(colors.$neutral-lighter, $alpha: .6);
+		background-color: color.change(colors.$neutral-lighter, $alpha: .6);
 		border-radius: variables.$border-radius;
 	}
-
-	/* End Shoppyis */
 
 	&__body {
 		height: variables.$main-item-meta-h;

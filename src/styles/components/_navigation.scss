@@ -49,6 +49,7 @@
 
 	&__right {
 		justify-content: end;
+		min-height: 2rem;
 	}
 
 	h3 {
@@ -65,7 +66,8 @@
 		}
 	}
 
-	ul {
+	ul,
+	button {
 		.navbar__link {
 			@extend %text-small;
 
@@ -73,6 +75,9 @@
 			list-style: none;
 			padding: variables.$size-extra-small 0;
 			transition: color 0.15s ease;
+
+			color: colors.$neutral-dark;
+			background-color: colors.$neutral-lightest;
 
 			&:hover,
 			&:focus {
@@ -89,18 +94,29 @@
 		}
 	}
 
-	&__user,
-	button {
+	&__user {
 		@extend %text-small;
 
 		color: colors.$neutral-dark;
 	}
 
-	/** Shoppyis **/
-	.navbar__cart {
+	&__checkout {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		place-items: center;
+		min-height: 2rem;
+		user-select: none;
+		background-color: colors.$neutral-lightest;
+
+		@extend %text-small;
 		color: colors.$neutral-dark;
-		display: inline-flex;
-		align-items: center;
-		gap: variables.$size-extra-small;
+
+		&:hover {
+			background-color: colors.$neutral-lighter;
+			border: variables.$border solid colors.$primary-lighter;
+			font-weight: 600;
+			padding: 0 variables.$size-extra-small;
+			border-radius: variables.$border-radius;
+		}
 	}
 }

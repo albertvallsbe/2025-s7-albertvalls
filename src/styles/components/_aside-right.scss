@@ -17,18 +17,14 @@
 	width: 360px;
 	height: calc(100vh - variables.$nav-height);
 
-	background: colors.$neutral-lighter;
-	border: variables.$border solid color.change(colors.$primary-main, $alpha: .50);
+	background-color: colors.$neutral-lighter;
+	border: variables.$border solid colors.$primary-light;
 
 	border-top-left-radius: variables.$border-radius;
 	box-shadow: variables.$shadow-light;
 
 	&.is-hidden {
 		display: none;
-	}
-
-	&__price-label {
-		@extend %text-medium;
 	}
 
 	.circle-icon {
@@ -45,10 +41,10 @@
 		padding: variables.$size-medium;
 
 		border-bottom: variables.$border solid colors.$primary-lighter;
-		background: colors.$neutral-lighter;
-		// color: colors.$primary-main;
+		background-color: colors.$neutral-lighter;
 
-		h2 {
+		h2,
+		h3 {
 			@extend %heading-extra-large;
 
 			justify-self: center;
@@ -66,7 +62,7 @@
 		padding: variables.$size-medium;
 		min-height: 0;
 
-		background: colors.$neutral-light;
+		background-color: colors.$neutral-light;
 
 		img {
 			display: block;
@@ -88,7 +84,7 @@
 		padding: variables.$size-medium;
 		min-height: 0;
 
-		background: colors.$neutral-lighter;
+		background-color: colors.$neutral-lighter;
 
 		h3 {
 			@extend %text-large;
@@ -99,11 +95,16 @@
 			color: colors.$primary-main;
 		}
 
+		label {
+			@extend %text-medium;
+
+			color: colors.$neutral-dark;
+		}
+
 		p {
 			@extend %text-extra-small;
 
 			color: colors.$neutral-darker;
-
 		}
 	}
 
@@ -118,30 +119,24 @@
 
 		padding: variables.$size-medium;
 		min-height: 0;
+
+		border-bottom: variables.$border solid colors.$primary-lighter;
 	}
 
 	&__footer {
 		display: grid;
 		gap: variables.$size-small;
 		padding: variables.$size-medium;
-		border-top: variables.$border solid color.change(colors.$primary-main, $alpha: .25);
-		background: colors.$neutral-lighter;
+		background-color: colors.$neutral-lighter;
 	}
 
-	/***** Shoppies ******/
 	&__total {
 		display: grid;
-
 		grid-template-columns: 1fr auto;
+
 		align-items: baseline;
 		column-gap: variables.$size-small;
 	}
-
-	&__total-label {
-		opacity: .7;
-	}
-
-	/***** End Shoppies ******/
 
 	// h3,
 	// h2 {

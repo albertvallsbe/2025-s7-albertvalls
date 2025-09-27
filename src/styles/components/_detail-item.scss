@@ -12,7 +12,7 @@
 	margin: variables.$size-extra-large auto;
 	padding: variables.$size-large;
 
-	background: colors.$neutral-lighter;
+	background-color: colors.$neutral-lighter;
 	border: variables.$border solid colors.$primary-main;
 	border-radius: variables.$border-radius;
 	box-shadow: variables.$shadow-light;
@@ -39,11 +39,11 @@
 	}
 
 	/* --- Media --- */
-	&__media {
+	&__figure {
 		display: grid;
 		justify-items: center;
 		align-items: center;
-		background: colors.$neutral-light;
+		background-color: colors.$neutral-light;
 		border-radius: variables.$border-radius;
 		overflow: hidden;
 		min-height: 0;
@@ -69,14 +69,15 @@
 
 		@extend %text-medium;
 
-		.columns {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			align-items: center;
-			gap: variables.$size-small;
+	}
 
-			padding: variables.$size-medium;
-		}
+	&__total {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		align-items: center;
+		gap: variables.$size-small;
+
+		padding: variables.$size-medium;
 	}
 }
 

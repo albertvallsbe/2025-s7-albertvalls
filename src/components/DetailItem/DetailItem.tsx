@@ -19,7 +19,7 @@ export const ItemDetail = ({ movie }: ItemDetailProps): JSX.Element => {
 				<h1>{title}</h1>
 			</header>
 
-			<figure className="detail-item__media">
+			<figure className="detail-item__figure">
 				<img
 					className="detail-item__image"
 					src={img(movie.backdrop_path ?? movie.poster_path, "w780")}
@@ -28,7 +28,7 @@ export const ItemDetail = ({ movie }: ItemDetailProps): JSX.Element => {
 			</figure>
 
 			<section className="detail-item__body">
-				<div className="columns">
+				<div className="detail-item__total">
 					{date && <p>{date}</p>}
 					{score100 && <p>{score100} / 100</p>}
 				</div>

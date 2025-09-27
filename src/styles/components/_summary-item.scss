@@ -11,49 +11,38 @@
 	align-items: center;
 
 	padding: variables.$size-small variables.$size-medium;
-	background: colors.$neutral-lightest;
-	border: variables.$border solid rgba(0, 0, 0, .08);
+	background-color: colors.$neutral-lightest;
+	border: variables.$border solid colors.$primary-lighter;
 	border-radius: variables.$border-radius;
 	box-shadow: variables.$shadow-light;
 
 	&:hover {
-		border-color: rgba(0, 0, 0, .18);
+		border-color: colors.$primary-dark;
+		transform: translateY(-2px);
 	}
 
-	&__price-label {
-		@extend %text-medium;
-
-		justify-self: end;
-	}
-
-	&__circle-icon {
+	.circle-icon {
 		@extend %circle-icon;
 
 		justify-self: end;
 	}
-}
 
-.summary-item__left {
-	display: grid;
-	row-gap: .25rem;
-}
+	.summary-item__left {
+		display: grid;
+		row-gap: .25rem;
+	}
 
-.summary-item__date {
-	color: colors.$neutral-darker;
-	font-size: .875rem;
-	line-height: 1.1;
-}
+	.summary-item__right {
+		display: inline-grid;
+		grid-auto-flow: column;
+		align-items: center;
+		gap: .75rem;
+	}
 
-.summary-item__count {
-	justify-self: start;
-	color: colors.$neutral-darker;
-	// font-size: .875rem;
-	line-height: 1.1;
-}
+	label {
+		@extend %text-small;
 
-.summary-item__right {
-	display: inline-grid;
-	grid-auto-flow: column;
-	align-items: center;
-	gap: .75rem;
+		color: colors.$neutral-dark;
+		color: brown;
+	}
 }

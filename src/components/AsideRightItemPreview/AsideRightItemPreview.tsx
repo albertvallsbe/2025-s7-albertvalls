@@ -30,7 +30,7 @@ export const AsideRightItemPreview = () => {
 	return (
 		<aside className="aside-right">
 			<div className="aside-right__header">
-				<h2>{item.title ?? item.name}</h2>
+				<h3>{item.title ?? item.name}</h3>
 				<button
 					className="circle-icon"
 					type="button"
@@ -51,10 +51,13 @@ export const AsideRightItemPreview = () => {
 
 			<div className="aside-right__body">
 				<h3>{item.title ?? item.name}</h3>
+				<div className="aside-right__total">
+					<label>Average: </label>
+					<h4 className="average">
+						{Math.round(item.vote_average ?? 0) * 10} / 100
+					</h4>
+				</div>
 				<p>{item.overview}</p>
-				<span className="aside-right__price-label">
-					{Math.round(item.vote_average ?? 0) * 10} / 100
-				</span>
 			</div>
 
 			<div className="aside-right__footer">

@@ -9,6 +9,9 @@
 // Mixins
 @use "./mixins/mixins";
 
+// Globals
+@use "./globals/typography-global";
+
 // Elements
 @use "./elements/buttons";
 @use "./elements/icons";

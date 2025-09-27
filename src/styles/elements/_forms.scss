@@ -26,7 +26,6 @@
 		padding: variables.$size-medium;
 		color: colors.$primary-main;
 
-
 		h1 {
 			@extend %heading-triple-extra-large;
 
@@ -45,7 +44,7 @@
 		padding: variables.$size-medium;
 		min-height: 0;
 
-		background: colors.$neutral-lightest;
+		background-color: colors.$neutral-lightest;
 		border-radius: variables.$border-radius;
 
 		img {
@@ -53,7 +52,6 @@
 
 			width: 80%;
 			height: 100%;
-
 
 			object-fit: cover;
 		}
@@ -82,7 +80,7 @@
 
 		font: inherit;
 		color: colors.$neutral-darker;
-		background: colors.$neutral-lightest;
+		background-color: colors.$neutral-lightest;
 
 		border: variables.$border solid colors.$primary-lighter;
 		border-radius: variables.$border-radius;
@@ -102,14 +100,14 @@
 		}
 
 		&:disabled {
-			background: colors.$neutral-light;
+			background-color: colors.$neutral-light;
 			color: colors.$neutral-dark;
 			cursor: not-allowed;
 			opacity: 0.8;
 		}
 
 		&:read-only {
-			background: colors.$neutral-light;
+			background-color: colors.$neutral-light;
 		}
 
 		&.is-invalid {
@@ -186,7 +184,7 @@
 			appearance: none;
 			display: grid;
 			place-content: center;
-			background: colors.$neutral-lightest;
+			background-color: colors.$neutral-lightest;
 			cursor: pointer;
 
 			transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
@@ -197,7 +195,7 @@
 			}
 
 			&:checked {
-				background: colors.$primary-main;
+				background-color: colors.$primary-main;
 				border-color: colors.$primary-main;
 			}
 
@@ -206,11 +204,11 @@
 				width: 0.5rem;
 				height: 0.5rem;
 				border-radius: 0.125rem;
-				background: colors.$neutral-lightest;
+				background-color: colors.$neutral-lightest;
 			}
 
 			&:disabled {
-				background: colors.$neutral-light;
+				background-color: colors.$neutral-light;
 				border-color: colors.$neutral-main;
 				cursor: not-allowed;
 			}
@@ -243,14 +241,14 @@
 		border-radius: variables.$border-radius;
 		border: variables.$border solid colors.$primary-main;
 		/* default, sobreescrit per variants */
-		background: colors.$neutral-lightest;
+		background-color: colors.$neutral-lightest;
 
 		font-size: 0.95rem;
 		line-height: 1.35;
 
 		&--error {
 			border-color: colors.$danger-main;
-			background: color.scale(colors.$danger-main, $lightness: 90%);
+			background-color: colors.$danger-lighter;
 			/* suau */
 			color: colors.$danger-dark;
 		}
@@ -261,7 +259,7 @@
 
 		&__close {
 			border: variables.$border solid transparent;
-			background: transparent;
+			background-color: transparent;
 			border-radius: variables.$border-radius;
 			padding: variables.$size-extra-small variables.$size-small;
 			line-height: 1;

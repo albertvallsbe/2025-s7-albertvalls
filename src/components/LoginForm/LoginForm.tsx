@@ -66,7 +66,7 @@ export const LoginForm = (): JSX.Element => {
 						<h1>Sign in</h1>
 					</div>
 					<figure className="form__figure">
-						<img src="../../../public/logo-web.jpg" alt="logo" />
+						<img src="/logo-web.jpg" alt="logo" />
 					</figure>
 					{authenticationStatus === "failed" && (
 						<div className="form__alert form__alert--error" role="alert">
@@ -84,10 +84,11 @@ export const LoginForm = (): JSX.Element => {
 							</button>
 						</div>
 					)}
+
 					<InputForm
 						id="email"
 						type="email"
-						label="Email address"
+						label="Email address:"
 						autoComplete="username"
 						placeholder="your@email.com"
 						value={formData.email}
@@ -97,13 +98,14 @@ export const LoginForm = (): JSX.Element => {
 					<InputForm
 						id="password"
 						type="password"
-						label="Password"
+						label="Password:"
 						autoComplete="current-password"
 						placeholder="••••••••"
 						value={formData.password}
 						onChange={handleFormChange}
 						required
 					/>
+
 					<button
 						type="submit"
 						disabled={authenticationStatus === "loading"}
