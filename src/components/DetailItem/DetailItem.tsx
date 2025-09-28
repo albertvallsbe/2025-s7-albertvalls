@@ -1,5 +1,8 @@
 // import { XMarkIcon } from "@heroicons/react/24/solid";
 import type { TmdbMovie } from "../../types/movies";
+import { CentralItemList } from "../../components/CentralItemList/CentralItemList";
+// features/movies/components/MovieCastList";
+// … dins del render, després de mostrar la informació principal:
 
 const img = (path: string | null | undefined, size = "w780") =>
 	path ? `https://image.tmdb.org/t/p/${size}${path}` : "";
@@ -18,7 +21,6 @@ export const ItemDetail = ({ movie }: ItemDetailProps): JSX.Element => {
 			<header className="detail-item__header">
 				<h1>{title}</h1>
 			</header>
-
 			<figure className="detail-item__figure">
 				<img
 					className="detail-item__image"
@@ -26,7 +28,6 @@ export const ItemDetail = ({ movie }: ItemDetailProps): JSX.Element => {
 					alt={title}
 				/>
 			</figure>
-
 			<section className="detail-item__body">
 				<div className="detail-item__total">
 					{date && <p>{date}</p>}
@@ -34,6 +35,7 @@ export const ItemDetail = ({ movie }: ItemDetailProps): JSX.Element => {
 				</div>
 				<p>{movie.overview}</p>
 			</section>
+			{movie && <CentralItemList movieId={movie.id} />}
 		</article>
 	);
 };
