@@ -2,7 +2,7 @@
 @use "../base/colors";
 @use "../base/variables";
 @use "../base/typography";
-@use "../reusable/reusable-icons";
+@use "../elements/icons";
 
 .aside-right {
 	position: fixed;
@@ -17,8 +17,8 @@
 	width: 360px;
 	height: calc(100vh - variables.$nav-height);
 
-	background: colors.$neutral-lighter;
-	border: variables.$border solid color.change(colors.$primary-main, $alpha: .50);
+	background-color: colors.$neutral-lighter;
+	border: variables.$border solid colors.$primary-light;
 
 	border-top-left-radius: variables.$border-radius;
 	box-shadow: variables.$shadow-light;
@@ -27,11 +27,7 @@
 		display: none;
 	}
 
-	&__price-label {
-		@extend %price-label;
-	}
-
-	&__circle-icon {
+	.circle-icon {
 		@extend %circle-icon;
 	}
 
@@ -42,15 +38,17 @@
 		align-items: center;
 		gap: variables.$size-small;
 
-		padding: 1rem;
+		padding: variables.$size-medium;
 
-		border-bottom: 1px solid colors.$primary-lighter;
-		background: colors.$neutral-lighter;
-		color: colors.$primary-main;
+		border-bottom: variables.$border solid colors.$primary-lighter;
+		background-color: colors.$neutral-lighter;
 
-		h2 {
+		h2,
+		h3 {
+			@extend %heading-extra-large;
+
 			justify-self: center;
-
+			text-align: center;
 		}
 	}
 
@@ -61,10 +59,10 @@
 		align-items: center;
 		justify-items: center;
 
-		padding: 1rem;
+		padding: variables.$size-medium;
 		min-height: 0;
 
-		background: colors.$neutral-light;
+		background-color: colors.$neutral-light;
 
 		img {
 			display: block;
@@ -86,17 +84,25 @@
 		padding: variables.$size-medium;
 		min-height: 0;
 
-		background: colors.$neutral-lighter;
+		background-color: colors.$neutral-lighter;
 
-		.aside-right__title {
-			font-size: 1rem;
-			font-weight: 500;
+		h3 {
+			@extend %text-large;
+
+			justify-self: center;
+			text-align: center;
 
 			color: colors.$primary-main;
 		}
 
-		.aside-right__desc {
-			font-size: .9rem;
+		label {
+			@extend %text-medium;
+
+			color: colors.$neutral-dark;
+		}
+
+		p {
+			@extend %text-extra-small;
 
 			color: colors.$neutral-darker;
 		}
@@ -113,25 +119,27 @@
 
 		padding: variables.$size-medium;
 		min-height: 0;
+
+		border-bottom: variables.$border solid colors.$primary-lighter;
 	}
 
 	&__footer {
 		display: grid;
 		gap: variables.$size-small;
 		padding: variables.$size-medium;
-		border-top: 1px solid color.change(colors.$primary-main, $alpha: .25);
-		background: colors.$neutral-lighter;
+		background-color: colors.$neutral-lighter;
 	}
 
 	&__total {
 		display: grid;
-
 		grid-template-columns: 1fr auto;
+
 		align-items: baseline;
 		column-gap: variables.$size-small;
 	}
 
-	&__total-label {
-		opacity: .7;
-	}
+	// h3,
+	// h2 {
+	// 	color: inherit;
+	// }
 }

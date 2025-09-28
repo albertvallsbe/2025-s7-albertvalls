@@ -2,63 +2,58 @@
 @use "./colors";
 @use "./variables";
 
-
-.heading {
-	font-weight: 600;
-	color: colors.$neutral-dark;
-	margin: 0;
-}
-
-.heading__large {
-	font-size: 2rem;
-	color: colors.$neutral-dark;
-	margin-bottom: variables.$size-medium;
-}
-
-.heading__medium {
-	font-size: 1.25rem;
-	color: colors.$neutral-dark;
-	margin-bottom: variables.$size-small;
-}
-
-.text {
+// 14px
+%text-extra-small {
+	font-size: variables.$font-xs;
 	font-weight: 400;
-	color: colors.$neutral-dark;
-	margin: 0;
+
+	line-height: 1.4;
 }
 
-.text__right {
-	text-align: end;
-}
+// 16px
+%text-small {
+	font-size: variables.$font-sm;
+	font-weight: 400;
 
-.text__body {
-	font-size: 1rem;
-	color: colors.$neutral-dark;
 	line-height: 1.5;
 }
 
-.text__caption {
-	font-size: 0.875rem;
-	color: color.scale(colors.$neutral-dark, $lightness: -20%);
+// 18px
+%text-medium {
+	font-size: variables.$font-md;
+	font-weight: 500;
+
+	line-height: 1.5;
 }
 
-.text__display {
-	font-size: 2rem;
-	color: colors.$neutral-dark;
+// 20px
+%text-large {
+	font-size: variables.$font-lg;
 	font-weight: 600;
+
+	line-height: 1.5;
 }
 
-.placeholder {
-	&::placeholder {
-		font-style: italic;
-		color: color.scale(colors.$neutral-dark, $lightness: 50%);
-	}
-}
-
-// Actuals revisats
-%price-label {
+// 24px
+%heading-extra-large {
+	font-size: variables.$font-xl;
 	font-weight: 600;
-	font-size: 1.125rem;
 
-	color: colors.$primary-main;
+	line-height: 1.25;
+}
+
+// 28px
+%heading-doble-extra-large {
+	font-size: variables.$font-2xl;
+	font-weight: 700;
+
+	line-height: 1.2;
+}
+
+// 32px
+%heading-triple-extra-large {
+	font-size: variables.$font-3xl;
+	font-weight: 700;
+
+	line-height: 1.15;
 }

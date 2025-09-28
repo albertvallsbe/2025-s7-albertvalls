@@ -2,19 +2,17 @@
 @use "../base/colors";
 @use "../base/variables";
 @use "../base/typography";
-@use "../reusable/reusable-icons";
+@use "../elements/icons";
 
 .main-item {
 	display: grid;
-	width: 100%;
-	// width: variables.$main-item-width;
-	height: variables.$main-item-height;
-
-	// grid-template-rows: 1fr auto;
 	grid-template-rows:
 		calc(variables.$main-item-height - variables.$main-item-meta-h) variables.$main-item-meta-h;
 
-	background: colors.$neutral-lighter;
+	width: 100%;
+	height: variables.$main-item-height;
+
+	background-color: colors.$neutral-lighter;
 	border: variables.$border solid colors.$primary-main;
 	border-radius: variables.$border-radius;
 	box-shadow: variables.$shadow-light;
@@ -28,68 +26,69 @@
 		box-shadow: 0 .6rem 1.6rem rgba(0, 0, 0, .12);
 	}
 
-	&__price-label {
-		@extend %price-label;
-
-		white-space: nowrap;
-	}
-
-	&__circle-icon {
+	.circle-icon {
 		@extend %circle-icon;
 
 		position: absolute;
 		top: variables.$size-small;
 		right: variables.$size-small;
 	}
-}
 
-.main-item__figure {
-	position: relative;
-	display: grid;
-	width: 100%;
-	height: 100%;
-	min-height: 0;
-	overflow: hidden;
-	background: colors.$neutral-light;
-}
+	&__figure {
+		position: relative;
+		display: grid;
+		width: 100%;
+		height: 100%;
+		min-height: 0;
+		overflow: hidden;
+		background-color: colors.$neutral-light;
 
-.main-item__image {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-}
+		.main-item__image {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
 
-.main-item__tag {
-	position: absolute;
-	left: variables.$size-small;
-	bottom: variables.$size-small;
-	padding: .25rem .75rem;
-	font-size: .75rem;
-	color: colors.$neutral-darker;
-	background: color.change(colors.$neutral-lighter, $alpha: .6);
-	border-radius: variables.$border-radius;
-}
+	.main-item__tag {
+		position: absolute;
+		left: variables.$size-small;
+		bottom: variables.$size-small;
+		padding: variables.$size-extra-small variables.$size-medium;
+		font-size: variables.$font-xs;
+		color: colors.$neutral-darker;
+		background-color: color.change(colors.$neutral-lighter, $alpha: .6);
+		border-radius: variables.$border-radius;
+	}
 
-.main-item__meta {
-	height: variables.$main-item-meta-h;
-	box-sizing: border-box;
-	display: grid;
-	grid-template-columns: 1fr auto;
-	align-items: center;
-	gap: variables.$size-small;
-	padding: variables.$main-item-meta-pad-y .75rem;
-	color: colors.$primary-dark;
-	overflow: hidden;
-}
+	&__body {
+		height: variables.$main-item-meta-h;
+		box-sizing: border-box;
+		display: grid;
+		grid-template-columns: 1fr auto;
+		align-items: center;
+		gap: variables.$size-small;
+		padding: variables.$main-item-meta-pad-y variables.$size-medium;
+		color: colors.$primary-dark;
+		overflow: hidden;
 
-.main-item__title {
-	font-size: .875rem;
-	font-weight: 400;
-	line-height: variables.$main-item-meta-line-h;
+		h3 {
+			@extend %text-medium;
 
-	/* Evitar que títols llargs facin créixer la meta */
-	display: -webkit-box;
-	-webkit-line-clamp: variables.$main-item-meta-lines;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
+			/* Evitar que títols llargs facin créixer el body */
+			display: -webkit-box;
+			-webkit-line-clamp: variables.$main-item-meta-lines;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+			line-height: 24px;
+		}
+
+		p {
+			@extend %text-small;
+
+			margin-bottom: 0;
+			color: colors.$neutral-dark;
+			white-space: nowrap;
+		}
+	}
 }

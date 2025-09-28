@@ -30,9 +30,9 @@ export const AsideRightItemPreview = () => {
 	return (
 		<aside className="aside-right">
 			<div className="aside-right__header">
-				<h2>Detail</h2>
+				<h3>{item.title ?? item.name}</h3>
 				<button
-					className="aside-right__circle-icon"
+					className="circle-icon"
 					type="button"
 					aria-label="Close detail"
 					onClick={() => dispatch(closeDetail())}
@@ -50,18 +50,21 @@ export const AsideRightItemPreview = () => {
 			</figure>
 
 			<div className="aside-right__body">
-				<span className="aside-right__price-label">
-					{Math.round(item.vote_average ?? 0) * 10} / 100
-				</span>
-				<span className="aside-right__title">{item.title ?? item.name}</span>
-				<p className="aside-right__desc">{item.overview}</p>
+				<h3>{item.title ?? item.name}</h3>
+				<div className="aside-right__total">
+					<label>Average: </label>
+					<h4 className="average">
+						{Math.round(item.vote_average ?? 0) * 10} / 100
+					</h4>
+				</div>
+				<p>{item.overview}</p>
 			</div>
 
 			<div className="aside-right__footer">
 				<Link
 					to={`/movie/${item.id}`}
 					onClick={() => dispatch(closeDetail())}
-					className="button__text"
+					className="button button--primary"
 				>
 					See more
 				</Link>

@@ -73,6 +73,8 @@ export const HomePage = (): JSX.Element => {
 				</div>
 			)}
 
+			<h1>Pel·lícules</h1>
+			<h2>Acció</h2>
 			{status === "loading" && <p>Loading…</p>}
 			{status === "failed" && <p>Error: {error}</p>}
 			{status === "succeeded" && (

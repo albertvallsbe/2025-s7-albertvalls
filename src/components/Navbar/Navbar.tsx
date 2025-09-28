@@ -26,36 +26,43 @@ export const Navbar = () => {
 
 	return (
 		<nav className="navbar">
-			<ul className="navbar__left">
-				<li className="navbar__brand">
-					<NavLink to="/" className="navbar__brand-link">
-						Movieis
-					</NavLink>
-				</li>
-				<li>
-					<NavLink to="/home" className={linkClass}>
-						All
-					</NavLink>
-				</li>
-			</ul>
-			<ul className="navbar__right">
-				<li className="navbar__email">{userLabel}</li>
-				<li>
-					{isAuthenticated ? (
-						<button
-							type="button"
-							className="navbar__link"
-							onClick={handleLogout}
-						>
-							Logout
-						</button>
-					) : (
-						<NavLink to="/login" className={linkClass}>
-							Login
+			<div className="navbar__left">
+				<h3>
+					<NavLink to="/">Movieis</NavLink>
+				</h3>
+				<ul>
+					<li>
+						<NavLink to="/home" className={linkClass}>
+							All
 						</NavLink>
-					)}
-				</li>
-			</ul>
+					</li>
+					<li>
+						<NavLink to="/" className={linkClass}>
+							Others
+						</NavLink>
+					</li>
+				</ul>
+			</div>
+			<div className="navbar__right">
+				<ul>
+					<li className="navbar__user">{userLabel}</li>
+					<li>
+						{isAuthenticated ? (
+							<button
+								type="button"
+								className="navbar__link"
+								onClick={handleLogout}
+							>
+								Logout
+							</button>
+						) : (
+							<NavLink to="/login" className={linkClass}>
+								Login
+							</NavLink>
+						)}
+					</li>
+				</ul>
+			</div>
 		</nav>
 	);
 };

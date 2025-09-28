@@ -17,7 +17,7 @@ export const MainItem = ({ data }: CardProps) => {
 	};
 
 	return (
-		<div
+		<article
 			className="main-item"
 			role="card"
 			aria-label="Item card"
@@ -30,13 +30,13 @@ export const MainItem = ({ data }: CardProps) => {
 					alt={data.title ?? data.name ?? "Movie"}
 				/>
 			</figure>
-			<p className="main-item__meta">
-				<span className="main-item__title"> {data.title ?? data.name}</span>
-				<span className="main-item__price-label">
-					{" "}
+
+			<div className="main-item__body">
+				<h3> {data.title ?? data.name}</h3>
+				<h4 className="average">
 					{Math.round((data.vote_average ?? 0) * 10)} / 100
-				</span>
-			</p>
-		</div>
+				</h4>
+			</div>
+		</article>
 	);
 };

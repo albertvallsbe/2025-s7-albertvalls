@@ -8,6 +8,7 @@ import { AxiosError } from "axios";
 import backend from "../../services/backend";
 
 export type UserRole = "admin" | "customer" | string;
+export type AuthErrorPayload = { message: string; status?: number };
 
 export interface AuthUser {
 	id: number;
@@ -20,8 +21,14 @@ export interface AuthState {
 	accessToken: string | null;
 	authenticationStatus: "idle" | "loading" | "succeeded" | "failed";
 	errorMessage: string | null;
+	errorStatusCode: number | null;
 }
 
+export type ApiErrorResponse = {
+	message?: string;
+	code?: string | number;
+	errors?: Record<string, string[]>;
+};
 export interface LoginCredentials {
 	email: string;
 	password: string;
@@ -37,11 +44,13 @@ const initialState: AuthState = {
 	accessToken: null,
 	authenticationStatus: "idle",
 	errorMessage: null,
+	errorStatusCode: null,
 };
 
 export const authenticateUser = createAsyncThunk<
 	LoginPayload,
-	LoginCredentials
+	LoginCredentials,
+	{ rejectValue: AuthErrorPayload }
 >("auth/authenticateUser", async (credentials, { rejectWithValue }) => {
 	try {
 		const response = await backend.post<LoginPayload>(
@@ -50,8 +59,8 @@ export const authenticateUser = createAsyncThunk<
 		);
 		return response.data;
 	} catch (unknownError: unknown) {
-		type ApiErrorResponse = { message?: string };
 		let humanReadableMessage = "No s'ha pogut iniciar la sessió.";
+		let status: number | undefined;
 
 		if (unknownError instanceof AxiosError) {
 			const serverData = unknownError.response?.data as
@@ -59,8 +68,9 @@ export const authenticateUser = createAsyncThunk<
 				| undefined;
 			humanReadableMessage =
 				serverData?.message ?? unknownError.message ?? humanReadableMessage;
+			status = unknownError.response?.status;
 		}
-		return rejectWithValue(humanReadableMessage);
+		return rejectWithValue({ message: humanReadableMessage, status });
 	}
 });
 
@@ -84,12 +94,18 @@ const authSlice = createSlice({
 			window.localStorage.removeItem("auth_token");
 			window.localStorage.removeItem("auth_user");
 		},
+		clearAuthError: (state) => {
+			state.errorMessage = null;
+			state.errorStatusCode = null;
+			state.authenticationStatus = "idle";
+		},
 	},
 	extraReducers: (builder) => {
 		builder
 			.addCase(authenticateUser.pending, (state) => {
 				state.authenticationStatus = "loading";
 				state.errorMessage = null;
+				state.errorStatusCode = null;
 			})
 			.addCase(
 				authenticateUser.fulfilled,
@@ -97,6 +113,8 @@ const authSlice = createSlice({
 					state.authenticationStatus = "succeeded";
 					state.authenticatedUser = action.payload.user;
 					state.accessToken = action.payload.token;
+					state.errorMessage = null;
+					state.errorStatusCode = null;
 
 					window.localStorage.setItem("auth_token", action.payload.token);
 					window.localStorage.setItem(
@@ -107,13 +125,18 @@ const authSlice = createSlice({
 			)
 			.addCase(authenticateUser.rejected, (state, action) => {
 				state.authenticationStatus = "failed";
+
+				const payload = action.payload as AuthErrorPayload | undefined;
+
 				state.errorMessage =
-					(action.payload as string) ?? "Error d'autenticació.";
+					payload?.message ?? action.error.message ?? "Error d'autenticació.";
+				state.errorStatusCode = payload?.status ?? null;
 			});
 	},
 });
 
-export const { hydrateFromLocalStorage, signOut } = authSlice.actions;
+export const { hydrateFromLocalStorage, signOut, clearAuthError } =
+	authSlice.actions;
 export const performLogout = createAsyncThunk<void, void>(
 	"auth/performLogout",
 	async (_: void, { dispatch }) => {
@@ -126,3 +149,5 @@ export default authSlice.reducer;
 export const selectAuthState = (root: { auth: AuthState }) => root.auth;
 export const selectIsAuthenticated = (root: { auth: AuthState }) =>
 	Boolean(root.auth.accessToken);
+export const selectAuthErrorStatusCode = (root: { auth: AuthState }) =>
+	root.auth.errorStatusCode;

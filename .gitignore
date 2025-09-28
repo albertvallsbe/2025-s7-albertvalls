@@ -31,3 +31,5 @@ jest-html-reporters-*.html
 
 
 .env
+
+public/style.css
