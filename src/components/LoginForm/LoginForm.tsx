@@ -3,10 +3,12 @@ import { useLocation, useNavigate, type Location } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import {
 	authenticateUser,
-	selectAuthState,
-	selectIsAuthenticated,
 	clearAuthError,
 } from "../../features/auth/authSlice";
+import {
+	selectAuthState,
+	selectIsAuthenticated,
+} from "../../features/auth/authSelectors";
 import { InputForm } from "../../elements/forms/InputForm";
 
 type LoginFormState = {

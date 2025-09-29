@@ -1,6 +1,6 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { useAppSelector } from "../../app/hooks";
-import { selectAuthState } from "../../features/auth/authSlice";
+import { selectAuthState } from "../../features/auth/authSelectors";
 
 type RequireAuthProps = {
 	// Preparat per a una segona fase amb rols (no s'aplica encara)

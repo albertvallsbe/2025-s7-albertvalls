@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Layout } from "../../components/Layout/Layout";
 import { MainItem } from "../../components/MainItem/MainItem";
-import { selectAuthState } from "../../features/auth/authSlice";
+import { selectAuthState } from "../../features/auth/authSelectors";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { fetchTrendingMovies } from "../../features/movies/moviesSlice";
 

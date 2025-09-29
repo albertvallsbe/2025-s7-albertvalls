@@ -1,4 +1,5 @@
 import uiReducer, { openDetail, closeDetail } from "./uiSlice";
+import type { AnyAction } from "@reduxjs/toolkit";
 import type { UiState } from "../../types/uiTypes";
 
 /** Helper to build a UiState test object */
@@ -15,8 +16,7 @@ describe("uiSlice", () => {
 		/** Proves del reductor del uiSlice */
 
 		test("return the initial state when state is undefined and action is unknown", () => {
-			const unknownAction = { type: "unknown/action" } as any;
-
+			const unknownAction: AnyAction = { type: "unknown/action" };
 			const newState = uiReducer(undefined, unknownAction);
 
 			const expected: UiState = {

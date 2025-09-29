@@ -1,10 +1,10 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { performLogout } from "../../features/auth/authSlice";
 import {
 	selectAuthState,
 	selectIsAuthenticated,
-	performLogout,
-} from "../../features/auth/authSlice";
+} from "../../features/auth/authSelectors";
 
 export const Navbar = () => {
 	const linkClass = ({ isActive }: { isActive: boolean }) =>

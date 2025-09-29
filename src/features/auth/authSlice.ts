@@ -143,11 +143,5 @@ export const performLogout = createAsyncThunk<void, void>(
 		dispatch(signOut());
 	}
 );
-export default authSlice.reducer;
 
-// Selectors útils
-export const selectAuthState = (root: { auth: AuthState }) => root.auth;
-export const selectIsAuthenticated = (root: { auth: AuthState }) =>
-	Boolean(root.auth.accessToken);
-export const selectAuthErrorStatusCode = (root: { auth: AuthState }) =>
-	root.auth.errorStatusCode;
+export default authSlice.reducer;
