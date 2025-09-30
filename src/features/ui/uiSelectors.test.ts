@@ -1,5 +1,9 @@
 import type { RootState } from "../../app/store";
-import { selectIsDetailOpen, selectSelectedMovieId } from "./uiSelectors";
+import {
+	selectUiState,
+	selectIsDetailOpen,
+	selectSelectedMovieId,
+} from "./uiSelectors";
 
 const createState = (ui: RootState["ui"]): RootState =>
 	({
@@ -33,6 +37,16 @@ describe("ui selectors", () => {
 				selectedId: null,
 			});
 			expect(selectSelectedMovieId(stateWithoutId)).toBeNull();
+		});
+
+		test("return the full ui slice", () => {
+			const uiOpen = { isDetailOpen: true, selectedId: 42 };
+			const stateOpen = createState(uiOpen);
+			expect(selectUiState(stateOpen)).toBe(uiOpen);
+
+			const uiClosed = { isDetailOpen: false, selectedId: null };
+			const stateClosed = createState(uiClosed);
+			expect(selectUiState(stateClosed)).toBe(uiClosed);
 		});
 	});
 });

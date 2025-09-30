@@ -1,9 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { AxiosError } from "axios";
 import http from "../../services/http";
-import type { TmdbMovie, TmdbListResponse } from "../../types/movies";
-
-type RequestStatus = "idle" | "loading" | "succeeded" | "failed";
+import type {
+	TmdbMovie,
+	TmdbListResponse,
+	TmdbMovieCreditsResponse,
+	RequestStatus,
+} from "../../types/movies";
 
 type MoviesState = {
 	items: TmdbMovie[];
@@ -13,6 +16,10 @@ type MoviesState = {
 	detailsById: Record<number, TmdbMovie>;
 	detailsStatusById: Record<number, RequestStatus>;
 	detailsErrorById: Record<number, string | undefined>;
+
+	creditsById: Record<number, TmdbMovieCreditsResponse>;
+	creditsStatusById: Record<number, RequestStatus>;
+	creditsErrorById: Record<number, string | undefined>;
 };
 
 const initialState: MoviesState = {
@@ -21,6 +28,10 @@ const initialState: MoviesState = {
 	detailsById: {},
 	detailsStatusById: {},
 	detailsErrorById: {},
+
+	creditsById: {},
+	creditsStatusById: {},
+	creditsErrorById: {},
 };
 
 export const fetchTrendingMovies = createAsyncThunk<
@@ -65,6 +76,28 @@ export const fetchMovieById = createAsyncThunk<
 	}
 });
 
+/**
+ * Cast i crew d’una pel·lícula espècifica
+ */
+export const fetchMovieCreditsById = createAsyncThunk<
+	TmdbMovieCreditsResponse,
+	number,
+	{ rejectValue: string }
+>("movies/fetchCreditsById", async (movieId, { rejectWithValue }) => {
+	try {
+		const path = `/movie/${movieId}/credits`;
+		const response = await http.get<TmdbMovieCreditsResponse>(path);
+		return response.data;
+	} catch (error) {
+		const axiosError = error as AxiosError<{ status_message?: string }>;
+		const message =
+			axiosError.response?.data?.status_message ||
+			axiosError.message ||
+			"Unknown error fetching movie credits";
+		return rejectWithValue(message);
+	}
+});
+
 const moviesSlice = createSlice({
 	name: "movies",
 	initialState,
@@ -100,6 +133,25 @@ const moviesSlice = createSlice({
 				state.detailsStatusById[movieId] = "failed";
 				state.detailsErrorById[movieId] =
 					action.payload || "Failed to fetch movie detail";
+			});
+
+		builder
+			// Cast i Crew
+			.addCase(fetchMovieCreditsById.pending, (state, action) => {
+				const movieId = action.meta.arg;
+				state.creditsStatusById[movieId] = "loading";
+				state.creditsErrorById[movieId] = undefined;
+			})
+			.addCase(fetchMovieCreditsById.fulfilled, (state, action) => {
+				const credits = action.payload;
+				state.creditsById[credits.id] = credits;
+				state.creditsStatusById[credits.id] = "succeeded";
+			})
+			.addCase(fetchMovieCreditsById.rejected, (state, action) => {
+				const movieId = action.meta.arg;
+				state.creditsStatusById[movieId] = "failed";
+				state.creditsErrorById[movieId] =
+					action.payload || "Failed to fetch movie credits";
 			});
 	},
 });

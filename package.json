@@ -12,7 +12,9 @@
 		"sass": "sass ./src/styles/main.scss ./public/style.css --style=expanded --no-source-map",
 		"sass-w": "sass --watch ./src/styles/main.scss ./public/style.css --style=expanded --no-source-map",
 		"test": "jest",
-		"test-c": "jest --coverage"
+		"test-w": "jest --watchAll",
+		"test-c": "jest --coverage",
+		"test-cw": "jest --coverage --watchAll"
 	},
 	"dependencies": {
 		"@heroicons/react": "^2.0.16",
