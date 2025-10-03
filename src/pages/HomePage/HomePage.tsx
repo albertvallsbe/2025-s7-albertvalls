@@ -36,43 +36,6 @@ export const HomePage = (): JSX.Element => {
 
 	return (
 		<Layout>
-			{/* Panell temporal de debug d’autenticació */}
-			{authenticationStatus !== "idle" && (
-				<div
-					style={{
-						marginBottom: 16,
-						padding: 12,
-						border: "1px dashed #888",
-						borderRadius: 8,
-						background: "#f9f9f9",
-					}}
-				>
-					<strong>Auth debug</strong>
-					<div style={{ fontSize: 12, opacity: 0.8 }}>
-						status: {authenticationStatus}
-						{authenticationStatus === "failed" && errorMessage ? (
-							<> — error: {errorMessage}</>
-						) : null}
-					</div>
-					{authenticationStatus === "succeeded" && authenticatedUser && (
-						<div style={{ marginTop: 8 }}>
-							<div>
-								user:{" "}
-								<pre style={{ margin: 0 }}>
-									{JSON.stringify(authenticatedUser, null, 2)}
-								</pre>
-							</div>
-							<div style={{ marginTop: 4 }}>
-								token (abreujat): <code>{accessToken?.slice(0, 12)}…</code>
-							</div>
-							<div style={{ fontSize: 12, opacity: 0.7, marginTop: 4 }}>
-								* Debug temporal: elimina aquest bloc quan validis el flux.
-							</div>
-						</div>
-					)}
-				</div>
-			)}
-
 			<h1>Pel·lícules</h1>
 			<h2>Acció</h2>
 			{status === "loading" && <p>Loading…</p>}
